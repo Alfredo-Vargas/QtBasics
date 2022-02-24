@@ -4,71 +4,92 @@
 #include <QVariant>
 
 int main (int argc, char **argv) {
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "-------------------------EXPLORING INHERITANCE------------------------";
-    qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "-------------------------EXPLORING INHERITANCE------------------------";
+    // qDebug() << "----------------------------------------------------------------------";
 
-    ValueObject o;
-    QFile file;
+    // ValueObject o;
+    // QFile file;
 
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "-------------------------EXPLORING INHERITANCE------------------------";
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "Inheritance Info of ValueObject:";
-    qDebug() << "Does the object \"ValueObject\" inherits from QObject?:" << o.inherits("QObject");
-    qDebug() << "Does the object \"ValueObject\" inherits from ValueObject?:" << o.inherits("ValueObject");
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "Inheritance Info of QFile:";
-    qDebug() << "Does the object \"QFile\" inherits from QIODevice?:" << file.inherits("QIODevice");
-    qDebug() << "Does the object \"QFile\" inherits from QDataStream?:" << file.inherits("QDataStream");
-    qDebug() << "Does the object \"QFile\" inherits from QObject?:" << file.inherits("QObject");
-    qDebug() << "Does the object \"QFile\" inherits from QTemporaryFile?:" << file.inherits("QTemporaryFile");
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "The initial value of ValueObject is: " << o.value();
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug("Value: %d = %d", o.value(), o.property("integer").toInt());
-    o.setValue(42);
-    qDebug("Value: %d = %d", o.value(), o.property("integer").toInt());  // Not able to read through property without Q_PROPERTY(qint32 integer READ value)
-    o.setProperty("integer", 11);       // Not able to write through property without Q_PROPERTY(qint32 integer WRITE setValue)
-    qDebug("Value: %d = %d", o.value(), o.property("integer").toInt());
+    // qDebug() << "Inheritance Info of ValueObject:";
+    // qDebug() << "Does the object \"ValueObject\" inherits from QObject?:" << o.inherits("QObject");
+    // qDebug() << "Does the object \"ValueObject\" inherits from ValueObject?:" << o.inherits("ValueObject");
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "Inheritance Info of QFile:";
+    // qDebug() << "Does the object \"QFile\" inherits from QIODevice?:" << file.inherits("QIODevice");
+    // qDebug() << "Does the object \"QFile\" inherits from QDataStream?:" << file.inherits("QDataStream");
+    // qDebug() << "Does the object \"QFile\" inherits from QObject?:" << file.inherits("QObject");
+    // qDebug() << "Does the object \"QFile\" inherits from QTemporaryFile?:" << file.inherits("QTemporaryFile");
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "The initial value of ValueObject is: " << o.value();
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug("Value: %d = %d", o.value(), o.property("integer").toInt());
+    // o.setValue(42);
+    // qDebug("Value: %d = %d", o.value(), o.property("integer").toInt());  // Not able to read through property without Q_PROPERTY(qint32 integer READ value)
+    // o.setProperty("integer", 11);       // Not able to write through property without Q_PROPERTY(qint32 integer WRITE setValue)
+    // qDebug("Value: %d = %d", o.value(), o.property("integer").toInt());
 
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "-------------------------MEMORY MANAGEMENT----------------------------";
-    qDebug() << "----------------------------------------------------------------------";
-    o.setObjectName("root");
+    // qDebug() << "----------------------------------------------------------------------";
+    // qDebug() << "-------------------------MEMORY MANAGEMENT----------------------------";
+    // qDebug() << "----------------------------------------------------------------------";
+    // o.setObjectName("root");
 
-    ValueObject *c1 = new ValueObject();
-    c1->setObjectName("child 1");
-    ValueObject *c2 = new ValueObject();
-    c2->setObjectName("child 2");
-    ValueObject *c1c1 = new ValueObject();
-    c1c1->setObjectName("child 1 of child 1");
-    ValueObject *c2c1 = new ValueObject();
-    c2c1->setObjectName("child 2 of child 1");
-    ValueObject *c = new ValueObject();
-    c->setObjectName("child");
+    // ValueObject *c1 = new ValueObject();
+    // c1->setObjectName("child 1");
+    // ValueObject *c2 = new ValueObject();
+    // c2->setObjectName("child 2");
+    // ValueObject *c1c1 = new ValueObject();
+    // c1c1->setObjectName("child 1 of child 1");
+    // ValueObject *c2c1 = new ValueObject();
+    // c2c1->setObjectName("child 2 of child 1");
+    // ValueObject *c = new ValueObject();
+    // c->setObjectName("child");
 
-    // Only root was destructed until this point (why not the others?)
-    // The pointers to Value objects c1, c2, c1c1, c2c1 and c are destructed
-    // but the memory of the new ValueObjects() that they pointed to are never deallocated?
-    // Is the above a signal of memory leaking?
+    // // Only root was destructed until this point (why not the others?)
+    // // The pointers to Value objects c1, c2, c1c1, c2c1 and c are destructed
+    // // but the memory of the new ValueObjects() that they pointed to are never deallocated?
+    // // Is the above a signal of memory leaking?
 
-    c1->setParent(&o);
-    c2->setParent(&o);
-    c1c1->setParent(c1);
-    c2c1->setParent(c1);
-    c->setParent(c2);
+    // c1->setParent(&o);
+    // c2->setParent(&o);
+    // c1c1->setParent(c1);
+    // c2c1->setParent(c1);
+    // c->setParent(c2);
 
-    // From the above we see that the order of destruction follows a stack structure.
-    // Does this avoids dangling pointers?
+    // // From the above we see that the order of destruction follows a stack structure.
+    // // BUT, the new operation are suppose to use the HEAP, does the setParent() calls
+    // // change the HEAP allocation to the STACK type of allocation?
+    // // Does this avoids dangling pointers? (seems to be the case)
 
 
     qDebug() << "----------------------------------------------------------------------";
     qDebug() << "-------------------------SIGNALS AND SLOTS----------------------------";
     qDebug() << "----------------------------------------------------------------------";
+    ValueObject o1;
+    ValueObject o2;
+    QObject::connect(&o1, SIGNAL(valueChanged), &o2, SLOT(setValue));
+    o1.setValue(1);
+    o2.setValue(2);
+    // Connect here
+    qDebug("o1: %d, o2: %d", o1.value(), o2.value());
+    o1.setValue(42);
+    qDebug("o1: %d, o2: %d", o1.value(), o2.value());
+    o2.setValue(11);
+    qDebug("o1: %d, o2: %d", o1.value(), o2.value());
+
+    // From the above everything is consistent and self explanatory, with o1 and o2 independent
+    // Why the emit then?
+
+    qDebug() << "----------------------------------------------------------------------";
+    qDebug() << "-----------------------MAKING THE CONNECTION--------------------------";
+    qDebug() << "----------------------------------------------------------------------";
+
+    // Qt4 way of making a connection
+    // QObject::connect(&o1, SIGNAL(valueChanged), &o2, SLOT(setValue)); (See line 73)
+    // NOTHING NEW HAPPENS?!! WHY?!
 
   return 0;
 }

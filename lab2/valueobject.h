@@ -10,14 +10,18 @@ class ValueObject : public QObject
 public:
     explicit ValueObject(QObject *parent = nullptr);
     virtual ~ValueObject();  // virtual is declared so when the destructor of QObject is called can destroy this class unambiguosly
-    void setValue(qint32);
     qint32 value(void);
+    // void setValue(qint32); // move to signals to solve the part of slot and signals exercise
 
+public slots:
+    void setValue(qint32);
+
+// A signal must NOT be implemented. The meta object compiler (moc) PROVIDES an implementation.
 signals:
-
+    void valueChanged(qint32);
 
 private:
-    qint32 integer; // can't name this value!!!
+    qint32 integer; // can't name this to "value"!!!
 
 };
 

@@ -15,6 +15,8 @@ ValueObject::~ValueObject()
 
 void ValueObject::setValue(qint32 number){
     integer = number;
+    qDebug() << "The integer value is: " << integer;
+    emit valueChanged(integer);
 }
 
 qint32 ValueObject::value(void){
