@@ -59,18 +59,20 @@ int main (int argc, char **argv) {
     // c2c1->setParent(c1);
     // c->setParent(c2);
 
-    // // From the above we see that the order of destruction follows a stack structure.
-    // // BUT, the new operation are suppose to use the HEAP, does the setParent() calls
-    // // change the HEAP allocation to the STACK type of allocation?
-    // // Does this avoids dangling pointers? (seems to be the case)
-
+    // From the above we see that the order of destruction follows a stack structure.
+    // The setParent() enables pointers in both directions, every object is now linked to
+    // the root and follow a STACK structure, the objects themselves are ALWAYS on the HEAP.
+    // This avoids dangling pointers
 
     qDebug() << "----------------------------------------------------------------------";
     qDebug() << "-------------------------SIGNALS AND SLOTS----------------------------";
     qDebug() << "----------------------------------------------------------------------";
     ValueObject o1;
     ValueObject o2;
-    QObject::connect(&o1, SIGNAL(valueChanged), &o2, SLOT(setValue));
+    // The following line connects o2 to o1
+    QObject::connect(&o1, SIGNAL(valueChanged(qint32)), &o2, SLOT(setValue(qint32)));
+    // The following line completes the connection of the circle o2 follows o1 and o1 follows o2 (THIS CRASHES THE PROGRAM)
+    QObject::connect(&o2, SIGNAL(valueChanged(qint32)), &o1, SLOT(setValue(qint32)));
     o1.setValue(1);
     o2.setValue(2);
     // Connect here
@@ -80,16 +82,15 @@ int main (int argc, char **argv) {
     o2.setValue(11);
     qDebug("o1: %d, o2: %d", o1.value(), o2.value());
 
+
     // From the above everything is consistent and self explanatory, with o1 and o2 independent
-    // Why the emit then?
+    // Why the emit then? -- ANSWER: Emit (in ValueObject::setValue) makes the connection codewise!
 
-    qDebug() << "----------------------------------------------------------------------";
-    qDebug() << "-----------------------MAKING THE CONNECTION--------------------------";
-    qDebug() << "----------------------------------------------------------------------";
+    // Because o2 follows o1 then whenever we change the value of o1 then o2 also executes the
+    // function of o1
 
-    // Qt4 way of making a connection
-    // QObject::connect(&o1, SIGNAL(valueChanged), &o2, SLOT(setValue)); (See line 73)
-    // NOTHING NEW HAPPENS?!! WHY?!
+    // Two objects following each other can be useful whenever you want to change an attribute in
+    // two different ways
 
   return 0;
 }

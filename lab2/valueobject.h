@@ -5,7 +5,7 @@
 
 class ValueObject : public QObject
 {
-    Q_OBJECT;
+    Q_OBJECT
     Q_PROPERTY(qint32 integer READ value WRITE setValue)
 public:
     explicit ValueObject(QObject *parent = nullptr);
@@ -21,8 +21,7 @@ signals:
     void valueChanged(qint32);
 
 private:
-    qint32 integer; // can't name this to "value"!!!
-
+    qint32 m_value; // always give the same name of the getter with a "m_" prefix
 };
 
 #endif // VALUEOBJECT_H

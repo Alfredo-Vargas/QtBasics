@@ -4,7 +4,7 @@
 ValueObject::ValueObject(QObject *parent)
     : QObject{parent}
 {
-    integer = 0;
+    m_value = 0;
     qDebug() << "ValueObject consutructed.";
 }
 
@@ -14,11 +14,13 @@ ValueObject::~ValueObject()
 }
 
 void ValueObject::setValue(qint32 number){
-    integer = number;
-    qDebug() << "The integer value is: " << integer;
-    emit valueChanged(integer);
+    if (number != m_value){
+        m_value = number;
+        qDebug() << "The integer value is: " << m_value;
+        emit valueChanged(m_value);
+    }
 }
 
 qint32 ValueObject::value(void){
-    return integer;
+    return m_value;
 }
