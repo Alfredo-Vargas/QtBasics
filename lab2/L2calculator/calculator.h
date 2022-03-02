@@ -25,7 +25,7 @@ signals:
 
 private:
     int m_lastResult;
-    int m_currentNumber;
+    int m_currentNumber=0;
     bool m_isAdding;
 };
 
