@@ -15,13 +15,13 @@ CalculatorInterface::CalculatorInterface(QWidget *parent) :
     for(int i=0; i < 10; ++i){
         QString btnName = "button" + QString::number(i);
         btnArray[i] = CalculatorInterface::findChild<QPushButton *>(btnName);
-        connect(btnArray[i], &QPushButton::clicked, this, [=] {passButtonValue(btnArray[i]->text());});
+        connect(btnArray[i], &QPushButton::clicked, this, [=] {updateDisplay(btnArray[i]->text());});
     }
-        connect(ui->buttonAdd, &QPushButton::clicked, this, [=] {passButtonValue(ui->buttonAdd->text());});
-        connect(ui->buttonSubtract, &QPushButton::clicked, this, [=] {passButtonValue(ui->buttonSubtract->text());});
-        connect(ui->buttonCalculate, &QPushButton::clicked, this, [=] {passButtonValue(ui->buttonCalculate->text());});
-        connect(ui->buttonClear, &QPushButton::clicked, this, [=] {passButtonValue(ui->buttonClear->text());});
-        connect(ui->buttonAllClear, &QPushButton::clicked, this, [=] {passButtonValue(ui->buttonAllClear->text());});
+        connect(ui->buttonAdd, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonAdd->text());});
+        connect(ui->buttonSubtract, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonSubtract->text());});
+        connect(ui->buttonCalculate, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonCalculate->text());});
+        connect(ui->buttonClear, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonClear->text());});
+        connect(ui->buttonAllClear, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonAllClear->text());});
     m_calculator->allClear();
 }
 
@@ -45,9 +45,8 @@ void CalculatorInterface::changeEvent(QEvent *e)
     }
 }
 
-void CalculatorInterface::passButtonValue(QString m_btnvalue)
+void CalculatorInterface::updateDisplay(QString m_btnvalue)
 {
-    ui->entryLabel->setText(m_btnvalue);
     m_calculator->numEntered(m_btnvalue.toInt());
-    qDebug() << "Integer registeed as current number is" << m_calculator->
+    ui->entryLabel->setText(QString::number(m_calculator->getCurrentNumber()));
 }

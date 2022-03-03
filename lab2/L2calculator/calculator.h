@@ -8,6 +8,9 @@ class Calculator : public QObject
 Q_OBJECT
 public:
     explicit Calculator(QObject *parent = 0);
+    int getCurrentNumber(void);
+    int getLastResult(void);
+
 
 public slots:
     void numEntered(int);
@@ -24,7 +27,7 @@ signals:
     void displayChanged(QString);
 
 private:
-    int m_lastResult;
+    int m_lastResult=0;
     int m_currentNumber=0;
     bool m_isAdding;
 };

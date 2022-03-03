@@ -17,7 +17,7 @@ public:
 
 protected:
     void changeEvent(QEvent *e);
-    void passButtonValue(QString s);
+    void updateDisplay(QString s);
 
 private:
     Ui::CalculatorInterface *ui;

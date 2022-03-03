@@ -42,3 +42,8 @@ void Calculator::calculate()
     m_currentNumber = 0;
     emit displayChanged(QString::number(m_lastResult));
 }
+
+int Calculator::getCurrentNumber(void)
+{
+    return m_currentNumber;
+}
