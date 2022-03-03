@@ -15,15 +15,17 @@ CalculatorInterface::CalculatorInterface(QWidget *parent) :
     for(int i=0; i < 10; ++i){
         QString btnName = "button" + QString::number(i);
         btnArray[i] = CalculatorInterface::findChild<QPushButton *>(btnName);
-        connect(btnArray[i], &QPushButton::clicked, this, [=] {updateDisplay(btnArray[i]->text());});
+        connect(btnArray[i], &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonAdd->text());});
     }
         connect(ui->buttonAdd, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonAdd->text());});
         connect(ui->buttonSubtract, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonSubtract->text());});
         connect(ui->buttonCalculate, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonCalculate->text());});
         connect(ui->buttonClear, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonClear->text());});
         connect(ui->buttonAllClear, &QPushButton::clicked, this, [=] {updateDisplay(ui->buttonAllClear->text());});
+
     m_calculator->allClear();
 }
+
 
 CalculatorInterface::~CalculatorInterface()
 {
@@ -47,6 +49,25 @@ void CalculatorInterface::changeEvent(QEvent *e)
 
 void CalculatorInterface::updateDisplay(QString m_btnvalue)
 {
-    m_calculator->numEntered(m_btnvalue.toInt());
+    QRegExp rx("\\d");
+    if (rx.exactMatch(m_btnvalue)) {
+        if (m_calculator->getCurrentNumber() != 0 && m_calculator->getOperator()) {
+            m_calculator->numEntered(m_btnvalue.toInt());
+        }
+        else if (m_calculator->getLastResult() != 0 && m_calculator->getOperator()){
+
+    }
+
+    }
+    else if (m_btnvalue == "C") {
+       m_calculator->clear();
+    }
+    else if (m_btnvalue == "AC") {
+        m_calculator->allClear();
+    }
+    else if (m_btnvalue == "+") {
+        m_calculator->setOperator(m_btnvalue[0]);
+    }
     ui->entryLabel->setText(QString::number(m_calculator->getCurrentNumber()));
+    emit m_calculator->displayChanged(ui->entryLabel->text());
 }

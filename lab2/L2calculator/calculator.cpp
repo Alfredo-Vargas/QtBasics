@@ -1,7 +1,7 @@
 #include "calculator.h"
 
 Calculator::Calculator(QObject *parent) :
-    QObject(parent), m_lastResult(0), m_currentNumber(0), m_isAdding(true)
+    QObject(parent), m_lastResult(0), m_currentNumber(0), m_isAdding(false)
 {
 }
 
@@ -46,4 +46,21 @@ void Calculator::calculate()
 int Calculator::getCurrentNumber(void)
 {
     return m_currentNumber;
+}
+
+int Calculator::getLastResult(void)
+{
+    return m_lastResult;
+}
+
+void Calculator::setOperator(QChar c)
+{
+    if (c == '+'){
+        m_isAdding = true;
+    }
+}
+
+bool Calculator::getOperator(void)
+{
+    return m_isAdding;
 }

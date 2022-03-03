@@ -10,6 +10,8 @@ public:
     explicit Calculator(QObject *parent = 0);
     int getCurrentNumber(void);
     int getLastResult(void);
+    void setOperator(QChar);
+    bool getOperator(void);
 
 
 public slots:
@@ -27,8 +29,8 @@ signals:
     void displayChanged(QString);
 
 private:
-    int m_lastResult=0;
-    int m_currentNumber=0;
+    int m_lastResult;
+    int m_currentNumber;
     bool m_isAdding;
 };
 
