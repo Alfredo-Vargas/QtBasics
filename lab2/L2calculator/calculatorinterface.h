@@ -17,7 +17,6 @@ public:
 
 protected:
     void changeEvent(QEvent *e);
-    void updateDisplay(QString s);
 
 private:
     Ui::CalculatorInterface *ui;

@@ -8,11 +8,6 @@ class Calculator : public QObject
 Q_OBJECT
 public:
     explicit Calculator(QObject *parent = 0);
-    int getCurrentNumber(void);
-    int getLastResult(void);
-    void setOperator(QChar);
-    bool getOperator(void);
-
 
 public slots:
     void numEntered(int);
