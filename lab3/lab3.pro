@@ -1,14 +1,16 @@
 HEADERS += \
     designerwidget.h \
-    manualwidget.h
+    manualwidget.h \
+    multichoicewindow.h
 
 SOURCES += \
     designerwidget.cpp \
     main.cpp \
-    manualwidget.cpp
+    manualwidget.cpp \
+    multichoicewindow.cpp
 
 QT += widgets
 
 FORMS += \
-    MultiChoiceWindow.ui \
-    designerwidget.ui
+    designerwidget.ui \
+    multichoicewindow.ui
