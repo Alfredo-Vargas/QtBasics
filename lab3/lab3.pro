@@ -10,4 +10,5 @@ SOURCES += \
 QT += widgets
 
 FORMS += \
+    MultiChoiceWindow.ui \
     designerwidget.ui
