@@ -1,7 +1,9 @@
 #ifndef MANUALWIDGET_H
 #define MANUALWIDGET_H
-
-#include <QWidget>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QHBoxLayout>
 
 class ManualWidget : public QWidget
 {
@@ -11,6 +13,14 @@ public:
 
 signals:
 
+private slots:
+    void showMessage(void);
+
+private:
+    QLabel *m_label;
+    QHBoxLayout *m_layout;
+    QLineEdit *m_lineEdit;
+    QPushButton *m_pushButton;
 };
 
 #endif // MANUALWIDGET_H
