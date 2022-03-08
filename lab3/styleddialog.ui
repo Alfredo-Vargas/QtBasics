@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+font: bold 12pt &quot;Arial&quot;;
+color: rgb(226, 226, 226);
+}
+
+QWidget[objectName=&quot;StyledDialog&quot;] {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0 rgba(90, 90, 90, 255),
+stop:0.2 rgba(16, 16, 16, 255),
+stop:1 rgba(0,0,0,255));
+}
+
+QLineEdit {
+color: black;
+border: 2px solid white;
+border-radius: 5px;
+background-color: rgb(180, 180, 180);
+}
+
+QPushButton {
+border: 2px solid white;
+border-radius: 5px;
+padding: 5px;
+min-width: 80px;
+min-height: 20px;
+}
+
+QPushButton[text=&quot;Ok&quot;] {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0 rgba(64, 255, 64, 255),
+stop:0.1 rgba(200, 255, 200, 255),
+stop:0.2 rgba(0, 255, 0, 255),
+stop:0.90 rgba(0, 64, 0, 255),
+stop:1 rgba(0, 32, 0, 255));
+}
+
+QPushButton[text=&quot;Cancel&quot;] {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0 rgba(255, 64, 64, 255),
+stop:0.1 rgba(255, 200, 200, 255),
+stop:0.2 rgba(255, 0, 0, 255),
+stop:0.90 rgba(64, 0, 0, 255),
+stop:1 rgba(32, 0, 0, 255));
+}
+
+QLineEdit[highlight=&quot;true&quot;] {
+background-color: rgb(255, 255, 180);
+border-color: rgb(180, 0, 0);
+}</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>321</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Title:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="highlight" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Surname:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_3">
+        <property name="highlight" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Family Name:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="highlight" stdset="0">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="text">
+         <string>Ok</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

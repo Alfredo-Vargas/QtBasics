@@ -12,5 +12,8 @@ SOURCES += \
 QT += widgets
 
 FORMS += \
+    calculator.ui \
+    configuration.ui \
     designerwidget.ui \
-    multichoicewindow.ui
+    multichoicewindow.ui \
+    styleddialog.ui
