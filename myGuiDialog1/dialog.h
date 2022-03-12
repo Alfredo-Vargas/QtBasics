@@ -1,7 +1,8 @@
-#ifndef DIALOG_H
+﻿#ifndef DIALOG_H
 #define DIALOG_H
 
 #include <QDialog>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
@@ -17,5 +18,6 @@ public:
 
 private:
     Ui::Dialog *ui;
+    QPushButton *m_print;
 };
 #endif // DIALOG_H
