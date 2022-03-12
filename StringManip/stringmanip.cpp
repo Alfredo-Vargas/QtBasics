@@ -52,27 +52,3 @@ void StringManip::on_lineEditInput_textChanged(const QString &arg1)
         // output->setText(arg1);
     // }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
