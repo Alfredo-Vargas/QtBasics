@@ -37,10 +37,10 @@ void CalculatorWidget::valueChanged(QString s1, QString s2)
     if (s1.toInt(&ok) && s2.toInt(&ok)){
         m_result->setText(QString::number(s1.toInt() + s2.toInt()));
     }
-    else if (s1.toInt(&ok)) {
+    else if (s1.toInt(&ok) && s2 == "0") {
         m_result->setText(s1);
     }
-    else if (s2.toInt(&ok)) {
+    else if (s2.toInt(&ok) && s1 == "0") {
         m_result->setText(s2);
     }
     else {
