@@ -44,13 +44,13 @@ void FileListWidget::removeClicked()
 
 void FileListWidget::loadClicked()
 {
-    QFile f("/home/alfredo/projects/QtBasics/lab4/fileaccess/listitems.txt");
+    QFile f("/home/pacha/projects/QtBasics/lab4/fileaccess/listitems.txt");
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
         qFatal("Could not open the file");
 
     QTextStream in(&f);
 
-    if (!loaded || QWidget::clearButton->clicked) {
+    if (!loaded || m_list->count() == 0) {
         while(!in.atEnd() && !loaded){
            m_list->addItem(in.readLine());
         }
@@ -61,7 +61,7 @@ void FileListWidget::loadClicked()
 void FileListWidget::saveClicked()
 {
 
-    QFile f("/home/alfredo/projects/QtBasics/lab4/fileaccess/listitems.txt");
+    QFile f("/home/pacha/projects/QtBasics/lab4/fileaccess/listitems.txt");
     if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
         qFatal("Could not open the file");
 
