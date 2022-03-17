@@ -1,4 +1,4 @@
-#ifndef FILELISTWIDGET_H
+﻿#ifndef FILELISTWIDGET_H
 #define FILELISTWIDGET_H
 
 #include <QWidget>
@@ -22,6 +22,7 @@ private slots:
 private:
     QLineEdit *m_entryField;
     QListWidget *m_list;
+    bool loaded;
 };
 
 #endif // FILELISTWIDGET_H

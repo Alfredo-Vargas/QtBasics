@@ -1,4 +1,4 @@
-#include "filelistwidget.h"
+﻿#include "filelistwidget.h"
 
 #include <QGridLayout>
 #include <QPushButton>
@@ -26,6 +26,7 @@ FileListWidget::FileListWidget(QWidget *parent) :
 
     connect(saveButton, SIGNAL(clicked()), this, SLOT(saveClicked()));
     connect(loadButton, SIGNAL(clicked()), this, SLOT(loadClicked()));
+    loaded = false;
 }
 
 void FileListWidget::addClicked()
@@ -43,14 +44,31 @@ void FileListWidget::removeClicked()
 
 void FileListWidget::loadClicked()
 {
-    // Enter your code here
-    //
-    // The list widget is pointed at by m_list
+    QFile f("/home/alfredo/projects/QtBasics/lab4/fileaccess/listitems.txt");
+    if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
+        qFatal("Could not open the file");
+
+    QTextStream in(&f);
+
+    if (!loaded || QWidget::clearButton->clicked) {
+        while(!in.atEnd() && !loaded){
+           m_list->addItem(in.readLine());
+        }
+        loaded = !loaded;
+    }
 }
 
 void FileListWidget::saveClicked()
 {
-    // Enter your code here
-    //
-    // The list widget is pointed at by m_list
+
+    QFile f("/home/alfredo/projects/QtBasics/lab4/fileaccess/listitems.txt");
+    if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
+        qFatal("Could not open the file");
+
+    QTextStream out(&f);
+
+    for (int i=0; i < m_list->count(); ++i){
+        out << m_list->item(i)->text() << "\n";
+    }
+    f.close();
 }
