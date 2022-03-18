@@ -28,6 +28,16 @@ QDataStream &operator>>(QDataStream &people, Person &person)
 
 // Insert code for exercise step 4 here
 
+bool operator==(const Person &p1, const Person &p2)
+{
+    if (p1.firstName() == p2.firstName() && p1.initials() == p2.initials() && p1.familyName() == p2.familyName()){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 
 // Insert code for exercise step 5 here
 
