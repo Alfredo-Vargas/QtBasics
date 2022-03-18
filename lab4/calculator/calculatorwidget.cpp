@@ -33,15 +33,12 @@ CalculatorWidget::CalculatorWidget(QWidget *parent) :
 
 void CalculatorWidget::valueChanged(QString s1, QString s2)
 {
-    bool ok = true;
-    if (s1.toInt(&ok) && s2.toInt(&ok)){
-        m_result->setText(QString::number(s1.toInt() + s2.toInt()));
-    }
-    else if (s1.toInt(&ok) && s2 == "0") {
-        m_result->setText(s1);
-    }
-    else if (s2.toInt(&ok) && s1 == "0") {
-        m_result->setText(s2);
+    bool ok1 = true;
+    bool ok2 = true;
+    int num1 = s1.toInt(&ok1);
+    int num2 = s2.toInt(&ok2);
+    if (ok1 && ok2){
+        m_result->setText(QString::number(num1 + num2));
     }
     else {
         m_result->setText("no result");
