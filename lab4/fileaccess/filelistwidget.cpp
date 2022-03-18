@@ -22,11 +22,12 @@ FileListWidget::FileListWidget(QWidget *parent) :
     connect(m_entryField, SIGNAL(returnPressed()), this, SLOT(addClicked()));
     connect(addButton, SIGNAL(clicked()), this, SLOT(addClicked()));
     connect(removeButton, SIGNAL(clicked()), this, SLOT(removeClicked()));
-    connect(clearButton, SIGNAL(clicked()), m_list, SLOT(clear()));
+    // connect(clearButton, SIGNAL(clicked()), m_list, SLOT(clear()));
+    connect(clearButton, &QPushButton::clicked, m_list, [=]{m_list->clear(); m_loaded = false;});
 
     connect(saveButton, SIGNAL(clicked()), this, SLOT(saveClicked()));
     connect(loadButton, SIGNAL(clicked()), this, SLOT(loadClicked()));
-    loaded = false;
+    m_loaded = false;
 }
 
 void FileListWidget::addClicked()
@@ -44,24 +45,24 @@ void FileListWidget::removeClicked()
 
 void FileListWidget::loadClicked()
 {
-    QFile f("/home/pacha/projects/QtBasics/lab4/fileaccess/listitems.txt");
+    QFile f("/home/alfredo/projects/QtBasics/lab4/fileaccess/listitems.txt");
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text))
         qFatal("Could not open the file");
 
     QTextStream in(&f);
 
-    if (!loaded || m_list->count() == 0) {
-        while(!in.atEnd() && !loaded){
+    if (!m_loaded) {
+        while(!in.atEnd()){
            m_list->addItem(in.readLine());
         }
-        loaded = !loaded;
+        m_loaded = !m_loaded;
     }
 }
 
 void FileListWidget::saveClicked()
 {
 
-    QFile f("/home/pacha/projects/QtBasics/lab4/fileaccess/listitems.txt");
+    QFile f("/home/alfredo/projects/QtBasics/lab4/fileaccess/listitems.txt");
     if (!f.open(QIODevice::WriteOnly | QIODevice::Text))
         qFatal("Could not open the file");
 

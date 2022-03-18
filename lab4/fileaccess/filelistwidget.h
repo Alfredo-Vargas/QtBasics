@@ -22,7 +22,7 @@ private slots:
 private:
     QLineEdit *m_entryField;
     QListWidget *m_list;
-    bool loaded;
+    bool m_loaded;
 };
 
 #endif // FILELISTWIDGET_H
