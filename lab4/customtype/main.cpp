@@ -9,8 +9,25 @@
 #include "person.h"
 
 // Insert code for exercise step 3 here
+QDataStream &operator<<(QDataStream &people, const Person &person)
+{
+    people << person.firstName() << person.initials() << person.familyName();
+    return people;
+}
+QDataStream &operator>>(QDataStream &people, Person &person)
+{
+    QString firstname, initials, lastname;
+    people >> firstname;
+    people >> initials;
+    people >> lastname;
+    person.setFirstName(firstname);
+    person.setInitials(initials);
+    person.setFamilyName(lastname);
+    return people;
+}
 
 // Insert code for exercise step 4 here
+
 
 // Insert code for exercise step 5 here
 
@@ -60,18 +77,18 @@ void saveAndLoadPeople(QList<Person> people)
 
 void hashOfPeople()
 {
-//    QHash<Person, int> age;
-//
-//    age[Person("John", "", "Doe")] = 42;
-//    age[Person("Jane", "", "Doe")] = 36;
-//    age[Person("Albert", "A", "Einstein")] = 76;
-//
-//    if(42 != age[Person("John", "", "Doe")])
-//        qDebug("Something's wrong with John");
-//    if(36 != age[Person("Jane", "", "Doe")])
-//        qDebug("Something's wrong with Jane");
-//    if(76 != age[Person("Albert", "A", "Einstein")])
-//        qDebug("Something's wrong with Albert");
+    QHash<Person, int> age;
+
+    age[Person("John", "", "Doe")] = 42;
+    age[Person("Jane", "", "Doe")] = 36;
+    age[Person("Albert", "A", "Einstein")] = 76;
+
+    if(42 != age[Person("John", "", "Doe")])
+       qDebug("Something's wrong with John");
+    if(36 != age[Person("Jane", "", "Doe")])
+       qDebug("Something's wrong with Jane");
+    if(76 != age[Person("Albert", "A", "Einstein")])
+       qDebug("Something's wrong with Albert");
 }
 
 void variantsOfPeople(QList<Person> people)
