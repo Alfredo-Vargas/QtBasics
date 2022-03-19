@@ -1,4 +1,4 @@
-#include <QApplication>
+﻿#include <QApplication>
 
 #include <QList>
 #include <QFile>
@@ -28,8 +28,12 @@ QDataStream &operator>>(QDataStream &people, Person &person)
 
 // Insert code for exercise step 4 here
 
-bool operator==(const Person &p1, const Person &p2)
-{
+uint qHash(const Person &p) {
+    QString unique_identifier = p.firstName() + p.initials() + p.familyName();
+    return 0;
+}
+
+bool operator==(const Person &p1, const Person &p2) {
     if (p1.firstName() == p2.firstName() && p1.initials() == p2.initials() && p1.familyName() == p2.familyName()){
         return true;
     }
