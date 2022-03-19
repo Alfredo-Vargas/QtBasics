@@ -44,6 +44,7 @@ bool operator==(const Person &p1, const Person &p2) {
 
 
 // Insert code for exercise step 5 here
+Q_DECLARE_METATYPE(Person);
 
 // Do not modify code below this line (except activating code for exercise steps 4 and 5)
 
@@ -107,22 +108,22 @@ void hashOfPeople()
 
 void variantsOfPeople(QList<Person> people)
 {
-//    qDebug("Original variants of people");
-//    foreach(const Person &p, people)
-//        qDebug("  %s %s %s", qPrintable(p.firstName()), qPrintable(p.initials()), qPrintable(p.familyName()));
-//
-//    QList<QVariant> variantList;
-//
-//    foreach(const Person &p, people)
-//        variantList << QVariant::fromValue(p);
-//
-//    people.clear();
-//    foreach(const QVariant &v, variantList)
-//        people << v.value<Person>();
-//
-//    qDebug("People after variants");
-//    foreach(const Person &p, people)
-//        qDebug("  %s %s %s", qPrintable(p.firstName()), qPrintable(p.initials()), qPrintable(p.familyName()));
+   qDebug("Original variants of people");
+   foreach(const Person &p, people)
+       qDebug("  %s %s %s", qPrintable(p.firstName()), qPrintable(p.initials()), qPrintable(p.familyName()));
+
+   QList<QVariant> variantList;
+
+   foreach(const Person &p, people)
+       variantList << QVariant::fromValue(p);
+
+   people.clear();
+   foreach(const QVariant &v, variantList)
+       people << v.value<Person>();
+
+   qDebug("People after variants");
+   foreach(const Person &p, people)
+       qDebug("  %s %s %s", qPrintable(p.firstName()), qPrintable(p.initials()), qPrintable(p.familyName()));
 }
 
 int main(int argc, char **argv)
