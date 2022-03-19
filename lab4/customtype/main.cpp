@@ -30,7 +30,7 @@ QDataStream &operator>>(QDataStream &people, Person &person)
 
 uint qHash(const Person &p) {
     QString unique_identifier = p.firstName() + p.initials() + p.familyName();
-    return 0;
+    return qHash(unique_identifier);
 }
 
 bool operator==(const Person &p1, const Person &p2) {
