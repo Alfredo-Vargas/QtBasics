@@ -1,4 +1,4 @@
-#include <QApplication>
+﻿#include <QApplication>
 #include "filechooser.h"
 
 int main(int argc, char *argv[])
@@ -9,3 +9,12 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+
+
+// QUESTION 1:
+// Why not include the needed files in the header files
+// class call? instead of include? any difference?
+// Best practice?
+
+
