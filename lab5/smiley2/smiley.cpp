@@ -1,4 +1,4 @@
-#include "smiley.h"
+﻿#include "smiley.h"
 #include <QPainter>
 #include <QMouseEvent>
 #include <cmath>
@@ -89,12 +89,18 @@ void Smiley::paintSmile(QPainter *painter, const QRect &r) {
 
 void Smiley::mousePressEvent(QMouseEvent *me) {
     // enter your code here
+    focusPoint = me->pos();
+    update();
 }
 
 void Smiley::mouseMoveEvent(QMouseEvent *me) {
     // enter your code here
+    focusPoint = me->pos();
+    update();
 }
 
 void Smiley::mouseReleaseEvent(QMouseEvent *) {
     // enter your code here
+    focusPoint = QPoint();
+    update();
 }
