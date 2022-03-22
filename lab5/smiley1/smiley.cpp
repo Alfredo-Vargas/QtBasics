@@ -1,4 +1,4 @@
-#include "smiley.h"
+﻿#include "smiley.h"
 #include <QPainter>
 
 Smiley::Smiley(QWidget *parent)
@@ -18,6 +18,12 @@ void Smiley::paintEvent(QPaintEvent *pe) {
     
     // enter your code here
     // draw round face with center in 'center' and diameter of 'size'
+    QPen pen;
+    pen.setWidth(2);
+    pen.setColor(Qt::black);
+    painter.setPen(pen);
+    painter.setBrush(Qt::yellow);
+    painter.drawEllipse(center, center.x() - size, center.y() -size);
 
     // draw eyes
     int eyeHeight = center.y() - size/4;
@@ -37,9 +43,16 @@ void Smiley::paintEvent(QPaintEvent *pe) {
 void Smiley::paintEye(QPainter *painter, const QPoint &pt, int size) {
     // enter your code here
     // paint an ellipse with center in pt, height of size and width of size/2
+    QPen pen;
+    pen.setWidth(2);
+    pen.setColor(Qt::red);
+    painter->setPen(pen);
+    painter->setBrush(Qt::white);
+    painter->drawEllipse(pt, size/2, size);
 }
 
 void Smiley::paintSmile(QPainter *painter, const QRect &r) {
     // enter your code here
     // draw an arc inside the area of r
+    painter->drawArc(r, 0, -180 * 16);
 }
