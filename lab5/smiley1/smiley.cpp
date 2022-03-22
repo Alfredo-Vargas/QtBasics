@@ -10,7 +10,7 @@ QSize Smiley::sizeHint() const {
     return QSize(200,200);
 }
 
-void Smiley::paintEvent(QPaintEvent *pe) {
+void Smiley::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     QPoint center = rect().center();
@@ -23,7 +23,9 @@ void Smiley::paintEvent(QPaintEvent *pe) {
     pen.setColor(Qt::black);
     painter.setPen(pen);
     painter.setBrush(Qt::yellow);
-    painter.drawEllipse(center, center.x() - size, center.y() -size);
+    // Bad approach because the eyes and smile do not depend on the center (mismatch when resizing!)
+    // painter.drawEllipse(center, center.x() - size, center.y() -size);
+    painter.drawEllipse(center, size/2, size/2);
 
     // draw eyes
     int eyeHeight = center.y() - size/4;
