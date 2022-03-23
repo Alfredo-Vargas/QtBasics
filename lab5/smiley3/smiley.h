@@ -1,16 +1,20 @@
-#ifndef SMILEY_H
+﻿#ifndef SMILEY_H
 #define SMILEY_H
 
 #include <QWidget>
 
 class Smiley : public QWidget
 {
+    Q_OBJECT
+    Q_PROPERTY(int smileSize READ smileSize WRITE setSmileSize)
 public:
     Smiley(QWidget *parent = 0);
     QSize sizeHint() const;
     int smileSize() const;
 public slots:
     void setSmileSize(int);
+signals:
+    void smileSizeChanged(int);
 
 protected:
     void paintEvent(QPaintEvent *);

@@ -1,12 +1,13 @@
-#include "smiley.h"
+﻿#include "smiley.h"
 #include <QPainter>
 #include <QMouseEvent>
 #include <cmath>
 
+
 Smiley::Smiley(QWidget *parent)
     : QWidget(parent)
 {
-    m_smileSize = 100;
+    m_smileSize = 40;
 }
 
 QSize Smiley::sizeHint() const {
@@ -84,7 +85,12 @@ void Smiley::paintSmile(QPainter *painter, const QRect &r, int angle) {
     painter->save();
     
     // enter your code here
-    
+    painter->save();
+    QPen pen(Qt::black);
+    pen.setWidth(2);
+    painter->setPen(pen);
+    // postitive values means counter-clockwise and negative clockwise direction
+    painter->drawArc(r, -angle*16, -(180 - 2*angle )*16);
     painter->restore();
 }
 
@@ -105,6 +111,14 @@ void Smiley::mouseReleaseEvent(QMouseEvent *) {
 
 void Smiley::setSmileSize(int size) {
     // enter your code here
+    // QUESTIO: How the signal implementation is actually making the whole widget construction better?
+    if (size != m_smileSize) {
+        emit smileSizeChanged(size);
+    }
+    if (size >= 0 && size <=100) {
+        m_smileSize = size;
+    }
+    update();
 }
 
 int Smiley::smileSize() const {
