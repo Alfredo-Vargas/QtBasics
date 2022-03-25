@@ -111,13 +111,15 @@ void Smiley::mouseReleaseEvent(QMouseEvent *) {
 
 void Smiley::setSmileSize(int size) {
     // enter your code here
-    // QUESTIO: How the signal implementation is actually making the whole widget construction better?
-    if (size != m_smileSize) {
-        emit smileSizeChanged(size);
-    }
+    // QUESTION: How the signal implementation is actually making the whole widget construction better?
+
     if (size >= 0 && size <=100) {
         m_smileSize = size;
+        if (size != m_smileSize) {
+            emit smileSizeChanged(size);
+        }
     }
+
     update();
 }
 
