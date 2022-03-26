@@ -16,8 +16,7 @@
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtUiTools",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtUiPlugin",
+        "-I/home/alfredo/projects/QtBasics/lab5/build-smiley3-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
@@ -26,9 +25,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
+        "/home/alfredo/projects/QtBasics/lab5/smiley3/main.cpp"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/cmakeTutorial/build_helloworld",
-    "file": "/home/alfredo/projects/QtBasics/cmakeTutorial/main.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/lab5/build-smiley3-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/lab5/smiley3/main.cpp"
 },
 {
     "arguments": [
@@ -47,7 +47,7 @@
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "/home/alfredo/projects/QtBasics/cmakeTutorial/build_helloworld",
+        "-I/home/alfredo/projects/QtBasics/lab5/build-smiley3-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
@@ -56,10 +56,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/alfredo/projects/QtBasics/cmakeTutorial/mainwindow.cpp"
+        "/home/alfredo/projects/QtBasics/lab5/smiley3/smiley.cpp"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/cmakeTutorial/build_helloworld",
-    "file": "/home/alfredo/projects/QtBasics/cmakeTutorial/mainwindow.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/lab5/build-smiley3-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/lab5/smiley3/smiley.cpp"
 },
 {
     "arguments": [
@@ -78,7 +78,7 @@
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "/home/alfredo/projects/QtBasics/cmakeTutorial/build_helloworld",
+        "-I/home/alfredo/projects/QtBasics/lab5/build-smiley3-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
@@ -86,10 +86,10 @@
         "-DQT_GUI_LIB",
         "-DQT_CORE_LIB",
         "-x",
-        "c++",
-        "/home/alfredo/projects/QtBasics/cmakeTutorial/mainwindow.h"
+        "c++-header",
+        "/home/alfredo/projects/QtBasics/lab5/smiley3/smiley.h"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/cmakeTutorial/build_helloworld",
-    "file": "/home/alfredo/projects/QtBasics/cmakeTutorial/mainwindow.h"
+    "directory": "/home/alfredo/projects/QtBasics/lab5/build-smiley3-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/lab5/smiley3/smiley.h"
 }
 ]

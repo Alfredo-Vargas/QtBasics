@@ -1,5 +1,0 @@
-If:                               # Apply this config conditionally
-  PathMatch: .Q.*                   # to all headers beginning with Q
-CompileFlags:                     # Tweak the parse settings
-  Add: [--include="/home/alfredo/.config/Qt/5.15.2/gcc_64/include/"]
-
