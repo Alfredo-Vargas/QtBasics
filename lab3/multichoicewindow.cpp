@@ -1,4 +1,4 @@
-#include "multichoicewindow.h"
+﻿#include "multichoicewindow.h"
 #include "ui_multichoicewindow.h"
 #include "manualwidget.h"
 #include "designerwidget.h"
@@ -14,7 +14,6 @@ MultiChoiceWindow::~MultiChoiceWindow()
 {
     delete ui;
 }
-
 void MultiChoiceWindow::on_pushButton_clicked()
 {
     QWidget *w=0;
