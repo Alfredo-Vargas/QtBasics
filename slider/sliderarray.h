@@ -27,4 +27,6 @@ private:
     QSlider *temp_slider;
 };
 
+Q_DECLARE_METATYPE(SliderArray)
+
 #endif // SLIDERARRAY_H
