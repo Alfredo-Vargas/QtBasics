@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    sa = new SliderArray;
+    // ui->groupBox_3->addWidget(sa);
 }
 
 MainWindow::~MainWindow()

@@ -5,14 +5,13 @@
 #include <QSlider>
 #include <QWidget>
 
-
 class SliderArray : public QWidget
 {
     Q_OBJECT
     Q_PROPERTY(const QList<qint32> values READ value WRITE setValues)
 
 public:
-    explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 10);
+    explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 3);
     QList<qint32> values() ;
 
 public slots:
@@ -22,6 +21,7 @@ public slots:
 signals:
 
 private:
+
     QHBoxLayout *m_sliderLayout;
     QList<QSlider> *m_slidersPointers;
     QSlider *temp_slider;

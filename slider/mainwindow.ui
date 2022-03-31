@@ -59,7 +59,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBoxTestArea">
+     <widget class="SliderArray" name="groupBoxTestArea">
       <property name="title">
        <string>Test Area</string>
       </property>
@@ -147,6 +147,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SliderArray</class>
+   <extends>QGroupBox</extends>
+   <header location="global">sliderarray.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

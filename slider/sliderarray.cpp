@@ -5,7 +5,7 @@ SliderArray::SliderArray(QWidget *parent, qint32 slider_number)
 {
     // QWidget *myCentral = new QWidget;
     m_sliderLayout = new QHBoxLayout(this);
-
+    
     for (int i = 0; i < slider_number; ++i) {
         temp_slider = new QSlider(Qt::Vertical, this);
         m_slidersPointers->push_back(*temp_slider);
@@ -27,6 +27,6 @@ QList<qint32> SliderArray::values() {
 void SliderArray::setValues(QList<qint32>* data)
 {
    for (int i=0; i < data->count(); ++i) {
-       // m_slidersPointers->at(i).setValue(data->at(i));
+       m_slidersPointers->value(i).setValue(data->at(i));
     }
 }
