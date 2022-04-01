@@ -59,27 +59,10 @@
      </widget>
     </item>
     <item>
-     <widget class="SliderArray" name="groupBoxTestArea">
-      <property name="title">
-       <string>Test Area</string>
-      </property>
+     <widget class="SliderArray" name="sliderArray" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QSlider" name="verticalSlider">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSlider" name="verticalSlider_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSlider" name="verticalSlider_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -150,8 +133,8 @@
  <customwidgets>
   <customwidget>
    <class>SliderArray</class>
-   <extends>QGroupBox</extends>
-   <header location="global">sliderarray.h</header>
+   <extends>QWidget</extends>
+   <header>sliderarray.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

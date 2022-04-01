@@ -7,8 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     sa = new SliderArray();
-    // ui->groupBoxTestArea->
-    // ui->groupBoxTestArea->addWidget(sa);
+
+    // How to implement the custom widget?
+    // ui->sliderArray->addWidget(sa);
+
 }
 
 MainWindow::~MainWindow()
@@ -18,11 +20,8 @@ MainWindow::~MainWindow()
 
 
 // QUESTIONS:
-// 1. How to avoid the red lines in the Init GroupBox ?
+// 1. How to avoid the red lines in the Init GroupBox  (for label and spinbox)?
 // 2. It is better to specify qint32 or just use int ?
-// 3. How to interpret "Call to Delete Constructor"? Example (sliderarray.cpp):
-    // Is foreach discouraged? why?
-    // for (QSlider s : qAsConst(*m_slidersPointers)) {
-    // }
-    // QSlider s = m_slidersPointers->at(i);
-// 4.
+// 3. How to add my custom widget to the MainWindow?
+//    ui->sliderArray->addWdget(sa);  // does not work
+//    ui->centralWidget->addWidget(?);  // but I cannot specify the position in this way
