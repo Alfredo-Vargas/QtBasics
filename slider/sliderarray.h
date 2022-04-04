@@ -1,4 +1,6 @@
-﻿#ifndef SLIDERARRAY_H
+﻿#pragma once
+
+#ifndef SLIDERARRAY_H
 #define SLIDERARRAY_H
 
 #include <QHBoxLayout>
@@ -8,14 +10,14 @@
 class SliderArray : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(const QList<qint32> values READ value WRITE setValues)
+    Q_PROPERTY(const QList<int> value READ value WRITE setValue)
 
 public:
-    explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 3);
-    QList<qint32> values() ;
+    explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 10);
+    QList<int> value() ;
 
 public slots:
-    void setValues(QList<qint32>*);
+    void setValue(QList<int>);
 
 
 signals:
@@ -24,9 +26,6 @@ private:
 
     QHBoxLayout *m_sliderLayout;
     QList<QSlider> *m_slidersPointers;
-    QSlider *temp_slider;
 };
-
-Q_DECLARE_METATYPE(SliderArray)
 
 #endif // SLIDERARRAY_H

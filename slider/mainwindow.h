@@ -19,5 +19,6 @@ public:
 private:
     Ui::MainWindow *ui;
     SliderArray *sa;
+
 };
 #endif // MAINWINDOW_H

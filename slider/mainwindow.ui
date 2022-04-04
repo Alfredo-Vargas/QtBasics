@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>598</height>
+    <width>813</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,14 +59,13 @@
      </widget>
     </item>
     <item>
-     <widget class="SliderArray" name="sliderArray" native="true">
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <widget class="QGroupBox" name="groupBoxTestArea">
+      <property name="title">
+       <string>Test Area</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QSlider" name="verticalSlider">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
+        <widget class="SliderArray" name="sliderArray" native="true"/>
        </item>
       </layout>
      </widget>
@@ -111,7 +110,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>940</width>
+     <width>813</width>
      <height>19</height>
     </rect>
    </property>
