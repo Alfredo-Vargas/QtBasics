@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QSlider>
 #include <QWidget>
+#include <QDebug>
 
 class SliderArray : public QWidget
 {
@@ -14,11 +15,12 @@ class SliderArray : public QWidget
 
 public:
   explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 10);
-  // ~SliderArray();
+  virtual ~SliderArray();
   QList<int> value() ;
 
 public slots:
   void setValue(QList<int>);
+  void nameChanged();
 
 signals:
 

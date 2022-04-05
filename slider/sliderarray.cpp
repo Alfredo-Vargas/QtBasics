@@ -14,17 +14,23 @@ SliderArray::SliderArray(QWidget *parent, qint32 slider_number)
     m_slidersPointers->append(slider);
     m_sliderLayout->addWidget(slider);
   }
+  this->setLayout(m_sliderLayout);
 }
 
-// SliderArray::~SliderArray() {
-//
-// }
+SliderArray::~SliderArray() {
+
+}
+
+void SliderArray::nameChanged() {
+
+}
 
 QList<int> SliderArray::value() {
-  for (int i=0; i < m_slidersPointers->count(); ++i) {
-    data.push_back(m_slidersPointers->at(i)->value());
+  QList<int> currentSliderStatus;
+  for (int i=0; i < m_slidersPointers->size(); ++i) {
+    currentSliderStatus.append(m_slidersPointers->at(i)->value());
   }
-  return data;
+  return currentSliderStatus;
 }
 
 void SliderArray::setValue(QList<int> data)

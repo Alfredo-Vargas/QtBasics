@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "qlistwidget.h"
 #include "qpushbutton.h"
 #include "sliderarray.h"
 
@@ -19,6 +20,9 @@ public:
 
 private slots:
   void showTestAreaButtons();
+  void displaySliderStatus();
+  void deleteStep();
+  QListWidgetItem* getSelectedItem();
 
 private:
   Ui::MainWindow *ui;
