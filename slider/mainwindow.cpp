@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->saveSliders, &QPushButton::clicked, this, &MainWindow::displaySliderStatus);
   connect(ui->slidersStatusList, &QListWidget::itemClicked, this, &MainWindow::getSelectedItem);
   connect(ui->deleteStep, &QPushButton::clicked, this, &MainWindow::deleteStep);
-
+  connect(ui->cycleThrough, &QPushButton::clicked, this, &MainWindow::updateSliderArray);
 }
 
 MainWindow::~MainWindow()
@@ -56,12 +56,39 @@ QListWidgetItem* MainWindow::getSelectedItem() {
 }
 
 void MainWindow::deleteStep() {
-  if (ui->slidersStatusList->selectedItems().size() != 0) {
-    QListWidgetItem* current = getSelectedItem();
-    ui->slidersStatusList->removeItemWidget(current);
+  if (getSelectedItem() != nullptr) {
+    QListWidgetItem* current_selected_item = getSelectedItem();
+    int row_to_be_deleted = ui->slidersStatusList->row(current_selected_item);
+    QListWidgetItem* temp_entry = ui->slidersStatusList->takeItem(row_to_be_deleted);
+    delete temp_entry;
   }
 }
 
+void MainWindow::updateSliderArray() {
+
+  if (ui->slidersStatusList->count() != 0) {
+    SliderArray *sa = this->findChild<SliderArray *>("runTimeSliderArray");
+    // Do we need to allocate the timer as member property of MainWindow???
+    QTimer timer;
+
+    for (int i=0; i < ui->slidersStatusList->count(); ++i) {
+      QListWidgetItem* current_selected_item = ui->slidersStatusList->item(i);
+      qDebug() << "The values are: " << current_selected_item->text();
+      QString tempValues = current_selected_item->text();
+      QList<int> tempSliderArrayValues;
+
+      for (int j=0; j < tempValues.count(); j=+2) {
+        tempSliderArrayValues.append(tempValues[j].digitValue());
+      }
+
+      // we update here the Slider Array
+      sa->setValue(tempSliderArrayValues);
+      // we need a time to wait idle
+      // Do we need to allocate the timer as member property of MainWindow???
+      timer.start(2000);
+    }
+  }
+}
 // QUESTIONS:
 // 1. How to avoid the red lines in the Init GroupBox  (for label and spinbox)?
 // 2. It is better to specify qint32 or just use int ?
