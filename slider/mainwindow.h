@@ -24,10 +24,15 @@ private slots:
   void displaySliderStatus();
   void deleteStep();
   QListWidgetItem* getSelectedItem();
-  void updateSliderArray();
+  void startCycle();
+  void cycleToNext();
+
 
 private:
   Ui::MainWindow *ui;
+  QTimer *m_cycleTimer;
+  int m_cycleStepCounter = 0;
+  bool m_isCycleRunning = false;
 
 };
 #endif // MAINWINDOW_H

@@ -11,7 +11,7 @@
 class SliderArray : public QWidget
 {
   Q_OBJECT
-  Q_PROPERTY(const QList<int> value READ value WRITE setValue)
+  Q_PROPERTY(const QList<int> value READ value WRITE setValue NOTIFY valuesChanged)
 
 public:
   explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 10);
@@ -20,9 +20,9 @@ public:
 
 public slots:
   void setValue(QList<int>);
-  void nameChanged();
 
 signals:
+  void valuesChanged();
 
 private:
 

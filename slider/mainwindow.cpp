@@ -10,11 +10,15 @@ MainWindow::MainWindow(QWidget *parent)
   ui->groupBoxTestArea->setVisible(false);
   ui->groupBoxButtons->setVisible(false);
 
+  m_cycleTimer = new QTimer();
+
   connect(ui->initOkButton, &QPushButton::clicked, this, &MainWindow::showTestAreaButtons);
   connect(ui->saveSliders, &QPushButton::clicked, this, &MainWindow::displaySliderStatus);
   connect(ui->slidersStatusList, &QListWidget::itemClicked, this, &MainWindow::getSelectedItem);
   connect(ui->deleteStep, &QPushButton::clicked, this, &MainWindow::deleteStep);
-  connect(ui->cycleThrough, &QPushButton::clicked, this, &MainWindow::updateSliderArray);
+  connect(ui->cycleThrough, &QPushButton::clicked, this, &MainWindow::startCycle);
+  connect(m_cycleTimer, &QTimer::timeout, this, &MainWindow::cycleToNext);
+
 }
 
 MainWindow::~MainWindow()
@@ -64,31 +68,38 @@ void MainWindow::deleteStep() {
   }
 }
 
-void MainWindow::updateSliderArray() {
+void MainWindow::startCycle() {
 
-  if (ui->slidersStatusList->count() != 0) {
-    SliderArray *sa = this->findChild<SliderArray *>("runTimeSliderArray");
-    // Do we need to allocate the timer as member property of MainWindow???
-    QTimer timer;
-
-    for (int i=0; i < ui->slidersStatusList->count(); ++i) {
-      QListWidgetItem* current_selected_item = ui->slidersStatusList->item(i);
-      qDebug() << "The values are: " << current_selected_item->text();
-      QString tempValues = current_selected_item->text();
-      QList<int> tempSliderArrayValues;
-
-      for (int j=0; j < tempValues.count(); j=+2) {
-        tempSliderArrayValues.append(tempValues[j].digitValue());
-      }
-
-      // we update here the Slider Array
-      sa->setValue(tempSliderArrayValues);
-      // we need a time to wait idle
-      // Do we need to allocate the timer as member property of MainWindow???
-      timer.start(2000);
-    }
+  if (!m_isCycleRunning) { 
+    m_cycleTimer->start(1000);
   }
 }
+
+void MainWindow::cycleToNext() {
+
+  if (ui->slidersStatusList->count() !=0 && !m_isCycleRunning) {
+    m_isCycleRunning = true;
+  }
+
+  if (m_cycleStepCounter == ui->slidersStatusList->count()) {
+    m_cycleTimer->stop();
+    m_cycleStepCounter = 0;
+    m_isCycleRunning = false;
+  }
+
+  QListWidgetItem* current_selected_item = ui->slidersStatusList->item(m_cycleStepCounter);
+  QString tempValues = current_selected_item->text();
+  QStringList tempList = tempValues.split(QLatin1Char(','), Qt::SkipEmptyParts);
+  QList<int> tempSliderArrayValues;
+
+  for (int i=0; i < tempList.size(); ++i) {
+    tempSliderArrayValues.append(tempList[i].toInt());
+  }
+  SliderArray *sa = this->findChild<SliderArray *>("runTimeSliderArray");
+  sa->setValue(tempSliderArrayValues);
+  m_cycleStepCounter++;
+}
+
 // QUESTIONS:
 // 1. How to avoid the red lines in the Init GroupBox  (for label and spinbox)?
 // 2. It is better to specify qint32 or just use int ?

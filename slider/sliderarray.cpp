@@ -21,10 +21,6 @@ SliderArray::~SliderArray() {
 
 }
 
-void SliderArray::nameChanged() {
-
-}
-
 QList<int> SliderArray::value() {
   QList<int> currentSliderStatus;
   for (int i=0; i < m_slidersPointers->size(); ++i) {
@@ -37,11 +33,7 @@ void SliderArray::setValue(QList<int> data)
 {
   for (int i=0; i < m_slidersPointers->count(); ++i) {
     m_slidersPointers->at(i)->setValue(data.at(i));
+    m_slidersPointers->at(i)->setSliderPosition(data.at(i));
   }
-  // for (int i=0; i < data.count(); ++i) {
-  //   QSlider *slider;
-  //   slider = new QSlider(Qt::Vertical, this);
-  //   slider->setValue(data.at(i));
-  //   m_slidersPointers->append(slider);
-  // }
+  emit valuesChanged();
 }
