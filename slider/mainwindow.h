@@ -2,10 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ui_mainwindow.h"
 #include <QTimer>
 #include "qlistwidget.h"
 #include "qpushbutton.h"
 #include "sliderarray.h"
+#include <QFileDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,13 +22,14 @@ public:
   ~MainWindow();
 
 private slots:
-  void showTestAreaButtons();
+  void showTestAreaButtons(int);
   void displaySliderStatus();
   void deleteStep();
   QListWidgetItem* getSelectedItem();
   void startCycle();
   void cycleToNext();
-
+  void saveToFile();
+  void loadFromFile();
 
 private:
   Ui::MainWindow *ui;

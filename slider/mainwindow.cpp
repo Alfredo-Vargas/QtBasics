@@ -1,6 +1,4 @@
 ﻿#include "mainwindow.h"
-#include "sliderarray.h"
-#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
   : QMainWindow(parent)
@@ -11,14 +9,17 @@ MainWindow::MainWindow(QWidget *parent)
   ui->groupBoxButtons->setVisible(false);
 
   m_cycleTimer = new QTimer();
-
+  ui->actionSave->setDisabled(true);
+  
   connect(ui->initOkButton, &QPushButton::clicked, this, &MainWindow::showTestAreaButtons);
   connect(ui->saveSliders, &QPushButton::clicked, this, &MainWindow::displaySliderStatus);
   connect(ui->slidersStatusList, &QListWidget::itemClicked, this, &MainWindow::getSelectedItem);
   connect(ui->deleteStep, &QPushButton::clicked, this, &MainWindow::deleteStep);
   connect(ui->cycleThrough, &QPushButton::clicked, this, &MainWindow::startCycle);
   connect(m_cycleTimer, &QTimer::timeout, this, &MainWindow::cycleToNext);
-
+  connect(ui->actionSave, &QAction::triggered, this, &MainWindow::saveToFile);
+  connect(ui->actionLoad, &QAction::triggered, this, &MainWindow::loadFromFile);
+  connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
 }
 
 MainWindow::~MainWindow()
@@ -26,9 +27,15 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-void MainWindow::showTestAreaButtons() {
+void MainWindow::showTestAreaButtons(int numberOfSliders = 0) {
   ui->groupBoxInit->setVisible(false);
-  int n_sliders = ui->spinBox->value();
+  int n_sliders;
+  if (numberOfSliders == 0) {  // was not loaded from file
+    n_sliders = ui->spinBox->value();
+  }
+  else {  // was loaded from file
+    n_sliders = numberOfSliders;
+  }
 
   // We delete the default sliderArray that comes with 10 Sliders!
   SliderArray *default_sa = ui->sliderArray;
@@ -42,6 +49,8 @@ void MainWindow::showTestAreaButtons() {
   testAreaLayout->addWidget(sa);
   ui->groupBoxTestArea->setVisible(true);
   ui->groupBoxButtons->setVisible(true);
+  ui->actionLoad->setDisabled(true);
+  ui->actionSave->setDisabled(false);
 }
 
 void MainWindow::displaySliderStatus() {
@@ -56,6 +65,14 @@ void MainWindow::displaySliderStatus() {
 
 QListWidgetItem* MainWindow::getSelectedItem() {
   QListWidgetItem* current_item = ui->slidersStatusList->currentItem();
+  QString tempValues = current_item->text();
+  QStringList tempList = tempValues.split(QLatin1Char(','), Qt::SkipEmptyParts);
+  QList<int> tempSliderArrayValues;
+  for (int i=0; i < tempList.size(); ++i) {
+    tempSliderArrayValues.append(tempList[i].toInt());
+  }
+  SliderArray *sa = this->findChild<SliderArray *>("runTimeSliderArray");
+  sa->setValue(tempSliderArrayValues);
   return current_item;
 }
 
@@ -100,7 +117,42 @@ void MainWindow::cycleToNext() {
   m_cycleStepCounter++;
 }
 
+void MainWindow::saveToFile() {
+  if (ui->slidersStatusList->count() != 0) {
+    QString chosenFile = QFileDialog::getOpenFileName();
+    if (!chosenFile.isEmpty()) {
+      QFile fileToSave(chosenFile);
+      if (!fileToSave.open(QIODevice::WriteOnly)) {
+        qFatal("Could not open the file");
+      }
+      QTextStream outToFile(&fileToSave);
+      for (int i=0; i < ui->slidersStatusList->count(); ++i) {
+        outToFile << ui->slidersStatusList->item(i)->text() << Qt::endl;
+      }
+    }
+  }
+}
+
+void MainWindow::loadFromFile() {
+  QString chosenFile = QFileDialog::getOpenFileName();
+  if (!chosenFile.isEmpty()) {
+    QFile fileToLoad(chosenFile);
+    if (!fileToLoad.open(QIODevice::ReadOnly)) {
+      qFatal("Could not open the file");
+    }
+    QTextStream outFromFile(&fileToLoad);
+    QList<QString> stringList;
+    while (!outFromFile.atEnd()) {
+      stringList.append(outFromFile.readLine());
+    }
+    int sliderArrayLength = stringList.count();
+    QStringList tempList = stringList.last().split(QLatin1Char(','), Qt::SkipEmptyParts);
+    showTestAreaButtons(tempList.count());
+    for (int i=0; i < sliderArrayLength; ++i) {
+      ui->slidersStatusList->addItem(stringList.at(i));
+    }
+  }
+}
+
 // QUESTIONS:
 // 1. How to avoid the red lines in the Init GroupBox  (for label and spinbox)?
-// 2. It is better to specify qint32 or just use int ?
-//
