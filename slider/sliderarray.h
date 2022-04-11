@@ -16,13 +16,16 @@ class SliderArray : public QWidget
 public:
   explicit SliderArray(QWidget *parent = nullptr, qint32 slider_number = 10);
   virtual ~SliderArray();
-  QList<int> value() ;
+  QList<int> value();
 
 public slots:
   void setValue(QList<int>);
 
 signals:
   void valuesChanged();
+
+protected:
+  void resizeEvent(QResizeEvent *event) override;   // to adjust the widget after resize
 
 private:
 
