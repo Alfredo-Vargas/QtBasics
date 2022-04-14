@@ -18,7 +18,7 @@ FmDial::~FmDial() {
 
 }
 
-int FmDial::value() {
+qreal FmDial::value() {
   return m_position;
 }
 
@@ -26,7 +26,7 @@ QSize FmDial::sizeHint() const {
   return QSize(400, 50);  // according to the suggested minimum size
 }
 
-void FmDial::setValue(int current_position) {
+void FmDial::setValue(qreal current_position) {
   m_position = current_position;
 }
 
@@ -40,26 +40,30 @@ void FmDial::paintEvent(QPaintEvent *) {
   QPen pen(Qt::black);
   pen.setWidth(2);
   painter.setPen(pen);
-
   // QFont(const QString &family, int pointSize = -1, int weight = -1, bool italic = false)
   painter.setFont(QFont("Helvetica", 7));
 
+  // We draw a rectangle at the margins of the fmdial to have a sense of the spacing:
+  QRect outerFrame(0, 0, width(), height());
+  painter.drawRect(outerFrame);
+
   // Horizontal position must be relative to the parent width
-  int parent_width = width();
-  int x0 = 0.1 * parent_width;
+  qreal parent_width = width();
+  // qreal x0 = m_horizontalMargin * parent_width;
+  qreal x0 = parent_width * m_hmp / 2;
   // tick step equal to the effective width (80% of parent) divided by number of ticks
-  int tick_step = 0.8 * parent_width / 70;
+  qreal tick_step = (1 - m_hmp) * parent_width / 70;
 
   // Vertical position must be relative to the parent height
-  int parent_height = height();
+  qreal parent_height = height();
   // to vertical in the middle and give room to display the current position 
-  int y0 = parent_height / 2;  
-  int normal_tick_length = 10;
-  int large_tick_length = 20;
+  qreal y0 = parent_height / 2;  
+  qreal normal_tick_length = 10;
+  qreal large_tick_length = 20;
 
   // relative position for the tick text indicators
-  int deltay = 25;
-  int deltax = -10;
+  qreal deltay = 25;
+  qreal deltax = -10;
 
   // to count when to introduce a larger tick indicator
   int step_counter = 0;
@@ -86,20 +90,20 @@ void FmDial::paintEvent(QPaintEvent *) {
 
 void FmDial::paintIndicator(QPainter* painter) {
 
-  QPolygon indicator;
+  QPolygonF indicator;
 
-  // we create the polygon that respresents the indicator
-  int indicator_width =  4 * 0.8 * width() / 210;
-  int indicator_height = 15;
-  int relative_xpos = (1080 - m_position) * width() / 210;
-  int relative_ypos = height() / 2 - 5;
-  QPoint p0(relative_xpos , relative_ypos);
-  QPoint p1(relative_xpos + indicator_width, relative_ypos);
-  QPoint p2(relative_xpos + indicator_width, relative_ypos + indicator_height);
-  QPoint p3(relative_xpos + indicator_width / 2, relative_ypos + 1.5 * indicator_height);
-  QPoint p4(relative_xpos, relative_ypos + indicator_height);
+  // we create the polygon that represents the indicator
+  qreal indicator_width =  (1 - m_hmp) * width() / 70;
+  qreal indicator_height = 15;
+  qreal relative_xpos = (1080 - m_position) * width() / 210;
+  qreal relative_ypos = 1.0 * height() / 2 - 5;
+  QPointF p0(relative_xpos , relative_ypos);
+  QPointF p1(relative_xpos + indicator_width, relative_ypos);
+  QPointF p2(relative_xpos + indicator_width, relative_ypos + indicator_height);
+  QPointF p3(relative_xpos + indicator_width / 2, relative_ypos + 1.5 * indicator_height);
+  QPointF p4(relative_xpos, relative_ypos + indicator_height);
   indicator << p0 << p1 << p2 << p3 << p4;
-
+  
   // we color the polygon (indicator)
   QPen pen;
   QColor color(255, 0, 0, 125);
@@ -107,8 +111,34 @@ void FmDial::paintIndicator(QPainter* painter) {
   painter->setPen(pen);
   painter->setBrush(color);
   painter->drawPolygon(indicator);
+
+  // we create the label above the polygon to show the current frequency of the dial indicator
+  qreal deltay = -15;
+  qreal deltax = -10;
+
+
+  QString currentFrequency = QString::number(m_position / 10, 'g', 3);
+  painter->drawText(relative_xpos + deltax, relative_ypos + deltay,
+                    relative_xpos + deltax, relative_ypos, 0, currentFrequency);
+}
+
+int FmDial::frequencyToPixel(qreal freq) {
+
+  int horizontal_margin = m_hmp * width() / 2;
+  int w = width() - horizontal_margin * 2;
+  qreal pixelVal = (w / (m_maxFrequency - m_minFrequency)) * (freq - m_minFrequency) + horizontal_margin;
+  pixelVal = qBound(0, (int)pixelVal, width());
+  return pixelVal;
+}
+
+qreal FmDial::pixelToFrequency(int pixel) {
+  int horizontal_margin = m_hmp * width() / 2;
+  int w = width() - horizontal_margin * 2;
+  qreal freqVal = m_minFrequency + ((m_maxFrequency - m_minFrequency) / w) * (pixel - horizontal_margin);
+  freqVal = qRound(freqVal * 10) / 10.0;
+  return freqVal;
 }
 
 // TODO:
-// Relative position not working properly for the indicator (specially when resizing)
-// Maybe use QPointF instead of QPoint?
+// Convert properly from frequencies to integers to draw correctly the indicator on the FmDial
+

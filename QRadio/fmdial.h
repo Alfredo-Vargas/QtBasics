@@ -5,6 +5,7 @@
 #include <QLine>
 #include <QPainter>
 #include <QDebug>
+#include <QRect>
 
 class FmDial : public QWidget
 {
@@ -18,22 +19,27 @@ public:
   // this overloads a predefined sizeHint() -> useful for custom rendering
   QSize sizeHint() const;
 
-  int value();
+  qreal value();
 
 public slots:
-  void setValue(int);
+  void setValue(qreal);
 
 signals:
-  void frequencyChanged();
+  void frequencyChanged(qreal);
 
 protected:
   // this overloads a predefined paintEvent() -> useful for custom rendering
   void paintEvent(QPaintEvent*);
   void paintIndicator(QPainter*);
+  int frequencyToPixel(qreal freq);
+  qreal pixelToFrequency(int pixel);
 
 private:
-  // QHBoxLayout *m_layout;
-  int m_position = 975;
+  qreal m_position = 975;
+  qreal m_hmp = 0.2;  // horizontal margin percentage
+  qreal m_horizontalMargin = 20;
+  qreal m_maxFrequency = 108;
+  qreal m_minFrequency = 87;
 };
 
 // NOTE: Both sizeHint() and paintEvent() go always together!!!
