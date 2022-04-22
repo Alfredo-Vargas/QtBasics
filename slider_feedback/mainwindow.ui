@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>813</width>
-    <height>716</height>
+    <width>578</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="initOkButton">
+        <widget class="QPushButton" name="pushButton">
          <property name="text">
           <string>Ok</string>
          </property>
@@ -63,7 +63,6 @@
       <property name="title">
        <string>Test Area</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3"/>
      </widget>
     </item>
     <item>
@@ -73,28 +72,28 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QPushButton" name="saveSliders">
+        <widget class="QPushButton" name="pushButton_2">
          <property name="text">
           <string>Save Step</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="cycleThrough">
+        <widget class="QPushButton" name="pushButton_3">
          <property name="text">
           <string>Cycle through steps</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="deleteStep">
+        <widget class="QPushButton" name="pushButton_4">
          <property name="text">
           <string>Delete Step</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QListWidget" name="slidersStatusList"/>
+        <widget class="QListWidget" name="listWidget"/>
        </item>
       </layout>
      </widget>
@@ -106,18 +105,14 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>813</width>
-     <height>19</height>
+     <width>578</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionLoad"/>
-    <addaction name="actionSave"/>
-    <addaction name="separator"/>
-    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -128,21 +123,6 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionLoad">
-   <property name="text">
-    <string>Load from file</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="text">
-    <string>Save to file</string>
-   </property>
-  </action>
-  <action name="actionExit">
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

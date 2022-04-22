@@ -38,8 +38,8 @@ void MainWindow::showTestAreaButtons(int numberOfSliders = 0) {
   }
 
   // We delete the default sliderArray that comes with 10 Sliders!
-  SliderArray *default_sa = ui->sliderArray;
-  delete default_sa;
+  // SliderArray *default_sa = ui->sliderArray;
+  // delete default_sa;
 
   // We create a new sliderArray with the number of the Sliders given by the spinbox
   SliderArray *sa = new SliderArray(ui->groupBoxTestArea, n_sliders);

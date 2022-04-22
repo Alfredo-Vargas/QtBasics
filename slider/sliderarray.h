@@ -25,7 +25,7 @@ signals:
   void valuesChanged();
 
 protected:
-  void resizeEvent(QResizeEvent *event) override;   // to adjust the widget after resize
+  // void resizeEvent(QResizeEvent *event) override;   // to adjust the widget after resize
 
 private:
 

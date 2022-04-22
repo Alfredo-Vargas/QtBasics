@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QDebug>
 #include <QRect>
+#include <QMouseEvent>
 
 class FmDial : public QWidget
 {
@@ -33,6 +34,7 @@ protected:
   void paintIndicator(QPainter*);
   int frequencyToPixel(qreal freq);
   qreal pixelToFrequency(int pixel);
+  void updateIndicatorPosition(QMouseEvent*);
 
 private:
   qreal m_position = 975;
