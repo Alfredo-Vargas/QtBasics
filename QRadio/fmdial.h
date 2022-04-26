@@ -24,10 +24,13 @@ public:
 
 public slots:
   void setValue(qreal);
+  void mousePressEvent(QMouseEvent*);
+  void mouseMoveEvent(QMouseEvent *);
+  void mouseReleaseEvent(QMouseEvent *);
 
 signals:
-  // void frequencyChanged(qreal);
   void dialPositionChanged(qreal);
+  // void frequencyChanged(qreal);
 
 protected:
   // this overloads a predefined paintEvent() -> useful for custom rendering
@@ -35,9 +38,6 @@ protected:
   void paintIndicator(QPainter*);
   // int frequencyToPixel(qreal freq);
   // qreal pixelToFrequency(int pixel);
-  void mousePressEvent(QMouseEvent*);
-  void mouseMoveEvent(QMouseEvent *);
-  void mouseReleaseEvent(QMouseEvent *);
 
 private:
   // qreal m_position = 975;

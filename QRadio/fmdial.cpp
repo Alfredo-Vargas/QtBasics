@@ -121,7 +121,7 @@ void FmDial::paintIndicator(QPainter *painter) {
   qreal deltax = -10;
 
 
-  QString currentFrequency = QString::number(m_position / 10, 'g', 3);
+  QString currentFrequency = QString::number(m_position / 10, 'g', 4);
   painter->drawText(relative_xpos + deltax, relative_ypos + deltay,
                     relative_xpos + deltax, relative_ypos, 0, currentFrequency);
 
@@ -164,6 +164,7 @@ void FmDial::mousePressEvent(QMouseEvent *me) {
   // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
   // qDebug() << "new indicator frequency should be:  " << m_position;
   update();
+  emit dialPositionChanged(m_position);
 }
 
 void FmDial::mouseMoveEvent(QMouseEvent *me) {
@@ -185,6 +186,7 @@ void FmDial::mouseMoveEvent(QMouseEvent *me) {
   // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
   // qDebug() << "new indicator frequency should be:  " << m_position;
   update();
+  emit dialPositionChanged(m_position);
 }
 
 void FmDial::mouseReleaseEvent(QMouseEvent *me) {
@@ -206,4 +208,5 @@ void FmDial::mouseReleaseEvent(QMouseEvent *me) {
   // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
   // qDebug() << "new indicator frequency should be:  " << m_position;
   update();
+  emit dialPositionChanged(m_position);
 }
