@@ -5,8 +5,15 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    // connect(ui->fmRule, &QMouseEvent::Clicked, )
+  ui->setupUi(this);
+  QFile zendersFile("/home/alfredo/projects/QtBasics/QRadio/zendersGent.dat");
+  zendersFile.open(QIODevice::ReadOnly);
+  QDataStream in(&zendersFile);
+  in.setVersion(QDataStream::Qt_5_0);
+  connect(ui->dialVolume, &QDial::objectNameChanged, ui->lineEditStatus, [=]
+          {
+            ui->lineEditStatus->setText("30");
+          });
 }
 
 MainWindow::~MainWindow()

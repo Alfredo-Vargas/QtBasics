@@ -91,7 +91,9 @@ void Smiley::paintSmile(QPainter *painter, const QRect &r, int angle) {
     painter->setPen(pen);
     // postitive values means counter-clockwise and negative clockwise direction
     painter->drawArc(r, -angle*16, -(180 - 2*angle )*16);
-    painter->restore();
+
+    // Smiley has restore !!!
+    // painter->restore();
 }
 
 void Smiley::mousePressEvent(QMouseEvent *me) {
@@ -126,3 +128,6 @@ void Smiley::setSmileSize(int size) {
 int Smiley::smileSize() const {
     return m_smileSize;
 }
+
+
+// TODO: Get the xpos = 1080 of the current widget !!! fix your proportions to be dynamic

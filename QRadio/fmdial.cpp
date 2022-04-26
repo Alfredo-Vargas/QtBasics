@@ -92,7 +92,20 @@ void FmDial::paintIndicator(QPainter *painter) {
   // we create the polygon that represents the indicator
   qreal indicator_width =  (1 - m_hmp) * width() / 70;
   qreal indicator_height = 15;
-  qreal relative_xpos = (1080 - m_position) * width() / 210;
+  // qreal relative_xpos = (1080 - m_position) * width() / 210;
+  qreal ymax = (1 - m_hmp / 2) * width();
+  qreal ymin = width() * m_hmp / 2;
+  qreal xmax = 1080;
+  qreal xmin = 870;
+  qreal slope = (ymax - ymin) / (xmax - xmin);
+  qreal const_term = (ymin * xmax - ymax * xmin) / (xmax - xmin);
+  m_position = m_position > 1080 ? 1080 : m_position;
+  m_position = m_position < 870 ? 870 : m_position;
+  qreal relative_xpos = slope * m_position + const_term + indicator_width / 2;
+  // qDebug() << "The total width is: " << width();
+  // qDebug() << "The ymax and ymin are: " << ymax << " " << ymin;
+  // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
+  // qDebug() << "The relative xpos is: " << relative_xpos;
   qreal relative_ypos = 1.0 * height() / 2 - 5;
   QPointF p0(relative_xpos , relative_ypos);
   QPointF p1(relative_xpos + indicator_width, relative_ypos);
@@ -117,6 +130,8 @@ void FmDial::paintIndicator(QPainter *painter) {
   QString currentFrequency = QString::number(m_position / 10, 'g', 3);
   painter->drawText(relative_xpos + deltax, relative_ypos + deltay,
                     relative_xpos + deltax, relative_ypos, 0, currentFrequency);
+
+  // painter->restore();
 }
 
 int FmDial::frequencyToPixel(qreal freq) {
@@ -136,11 +151,65 @@ qreal FmDial::pixelToFrequency(int pixel) {
   return freqVal;
 }
 
-void FmDial::updateIndicatorPosition(QMouseEvent *me) {
-    m_position = me->x();
-    qDebug() << "frequency is:  " << m_position;
-    update();
+void FmDial::mousePressEvent(QMouseEvent *me) {
+  qreal ymax = (1 - m_hmp / 2) * width();
+  qreal ymin = width() * m_hmp / 2;
+  qreal xmax = 1080;
+  qreal xmin = 870;
+  qreal slope = (ymax - ymin) / (xmax - xmin);
+  qreal const_term = (ymin * xmax - ymax * xmin) / (xmax - xmin);
+  // m_position = (me->globalX() - const_term) / slope;  // relative to screen
+  m_position = (me->pos().x() - const_term) / slope - 2.5;  // relative to widget
+  // the above position have a deviation of 2.5 !! why?? (round error?)
+
+  m_position = m_position > 1080 ? 1080 : m_position;
+  m_position = m_position < 870 ? 870 : m_position;
+  // qDebug() << "The mouse position is: " << me->pos().x();
+  // qDebug() << "The total width is: " << width();
+  // qDebug() << "The ymax and ymin are: " << ymax << " " << ymin;
+  // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
+  // qDebug() << "new indicator frequency should be:  " << m_position;
+  update();
 }
 
-// TODO:
-// Convert properly from frequencies to integers to draw correctly the indicator on the FmDial
+void FmDial::mouseMoveEvent(QMouseEvent *me) {
+  qreal ymax = (1 - m_hmp / 2) * width();
+  qreal ymin = width() * m_hmp / 2;
+  qreal xmax = 1080;
+  qreal xmin = 870;
+  qreal slope = (ymax - ymin) / (xmax - xmin);
+  qreal const_term = (ymin * xmax - ymax * xmin) / (xmax - xmin);
+  // m_position = (me->globalX() - const_term) / slope;  // relative to screen
+  m_position = (me->pos().x() - const_term) / slope - 2.5;  // relative to widget
+  // the above position have a deviation of 2.5 !! why?? (round error?)
+
+  m_position = m_position > 1080 ? 1080 : m_position;
+  m_position = m_position < 870 ? 870 : m_position;
+  // qDebug() << "The mouse position is: " << me->pos().x();
+  // qDebug() << "The total width is: " << width();
+  // qDebug() << "The ymax and ymin are: " << ymax << " " << ymin;
+  // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
+  // qDebug() << "new indicator frequency should be:  " << m_position;
+  update();
+}
+
+void FmDial::mouseReleaseEvent(QMouseEvent *me) {
+  qreal ymax = (1 - m_hmp / 2) * width();
+  qreal ymin = width() * m_hmp / 2;
+  qreal xmax = 1080;
+  qreal xmin = 870;
+  qreal slope = (ymax - ymin) / (xmax - xmin);
+  qreal const_term = (ymin * xmax - ymax * xmin) / (xmax - xmin);
+  // m_position = (me->globalX() - const_term) / slope;  // relative to screen
+  m_position = (me->pos().x() - const_term) / slope - 2.5;  // relative to widget
+  // the above position have a deviation of 2.5 !! why?? (round error?)
+
+  m_position = m_position > 1080 ? 1080 : m_position;
+  m_position = m_position < 870 ? 870 : m_position;
+  // qDebug() << "The mouse position is: " << me->pos().x();
+  // qDebug() << "The total width is: " << width();
+  // qDebug() << "The ymax and ymin are: " << ymax << " " << ymin;
+  // qDebug() << "The slope and const_term are: " << slope << " " << const_term;
+  // qDebug() << "new indicator frequency should be:  " << m_position;
+  update();
+}

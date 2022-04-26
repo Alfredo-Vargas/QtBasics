@@ -11,7 +11,7 @@
 class FmDial : public QWidget
 {
   Q_OBJECT
-  Q_PROPERTY(const int value READ value WRITE setValue NOTIFY frequencyChanged)
+  Q_PROPERTY(const int value READ value WRITE setValue NOTIFY dialPositionChanged)
 public:
   explicit FmDial(QWidget *parent = nullptr);
   // we let the parent widget manage the destructor of this custom widget
@@ -27,6 +27,7 @@ public slots:
 
 signals:
   void frequencyChanged(qreal);
+  void dialPositionChanged(qreal);
 
 protected:
   // this overloads a predefined paintEvent() -> useful for custom rendering
@@ -34,10 +35,13 @@ protected:
   void paintIndicator(QPainter*);
   int frequencyToPixel(qreal freq);
   qreal pixelToFrequency(int pixel);
-  void updateIndicatorPosition(QMouseEvent*);
+  void mousePressEvent(QMouseEvent*);
+  void mouseMoveEvent(QMouseEvent *);
+  void mouseReleaseEvent(QMouseEvent *);
 
 private:
-  qreal m_position = 975;
+  // qreal m_position = 975;
+  qreal m_position = 870;
   qreal m_hmp = 0.2;  // horizontal margin percentage
   qreal m_horizontalMargin = 20;
   qreal m_maxFrequency = 108;
