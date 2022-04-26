@@ -10,11 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
   zendersFile.open(QIODevice::ReadOnly);
   QDataStream in(&zendersFile);
   in.setVersion(QDataStream::Qt_5_0);
-  connect(ui->dialVolume, &QDial::objectNameChanged, ui->lineEditStatus, [=]
-          {
-            ui->lineEditStatus->setText("30");
-          });
-}
+  connect(ui->dialVolume, &QDial::objectNameChanged, ui->lineEditStatus, &MainWindow::displayVolumeLevel}
 
 MainWindow::~MainWindow()
 {

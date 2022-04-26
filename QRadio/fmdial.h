@@ -33,8 +33,8 @@ protected:
   // this overloads a predefined paintEvent() -> useful for custom rendering
   void paintEvent(QPaintEvent*);
   void paintIndicator(QPainter*);
-  int frequencyToPixel(qreal freq);
-  qreal pixelToFrequency(int pixel);
+  // int frequencyToPixel(qreal freq);
+  // qreal pixelToFrequency(int pixel);
   void mousePressEvent(QMouseEvent*);
   void mouseMoveEvent(QMouseEvent *);
   void mouseReleaseEvent(QMouseEvent *);
