@@ -17,7 +17,7 @@ public:
 
 private slots:
   void displayVolumeLevel();
-  void changeDialPositionThroughDial();
+  void changeIndicatorPositionThroughDial();
 
 private:
   Ui::MainWindow *ui;

@@ -149,6 +149,7 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionAbout_Qt"/>
    </widget>
    <addaction name="menuRadio_Interface"/>
    <addaction name="menuHelp"/>
@@ -167,6 +168,11 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt</string>
    </property>
   </action>
  </widget>

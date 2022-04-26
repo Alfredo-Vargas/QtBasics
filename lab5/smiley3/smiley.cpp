@@ -128,6 +128,3 @@ void Smiley::setSmileSize(int size) {
 int Smiley::smileSize() const {
     return m_smileSize;
 }
-
-
-// TODO: Get the xpos = 1080 of the current widget !!! fix your proportions to be dynamic
