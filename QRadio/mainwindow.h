@@ -16,9 +16,12 @@ public:
   ~MainWindow();
 
 private slots:
-  void displayVolumeLevel();
-  void changeIndicatorPositionThroughDial();
-  void changeDialPositionThroughIndicator();
+  void displayVolumeLevel(void);
+  void changeIndicatorPositionThroughDial(void);
+  void changeDialPositionThroughIndicator(void);
+
+protected:
+  void addButtonToPresets(void);
 
 private:
   Ui::MainWindow *ui;
