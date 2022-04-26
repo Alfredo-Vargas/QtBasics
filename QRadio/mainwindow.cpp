@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
   zendersFile.open(QIODevice::ReadOnly);
   QDataStream in(&zendersFile);
   in.setVersion(QDataStream::Qt_5_0);
-  // connect(ui->dialVolume, &QDial::objectNameChanged, ui->lineEditStatus, &MainWindow::displayVolumeLevel);
   connect(ui->dialVolume, &QDial::valueChanged, this, &MainWindow::displayVolumeLevel);
+  connect(ui->dialFrequency, &QDial::valueChanged, this, &MainWindow::changeDialPositionThroughDial);
   connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
 }
 
@@ -27,3 +27,8 @@ void MainWindow::displayVolumeLevel() {
   ui->lineEditStatus->setText(volumeFeedback);
 }
 
+void MainWindow::changeDialPositionThroughDial() {
+  qreal current_value = ui->dialFrequency->value();
+  emit ui->fmRule->setValue(current_value);
+  update();
+}
