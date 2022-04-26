@@ -16,7 +16,7 @@ public:
   ~MainWindow();
 
 public slots:
-  void
+  // void displayVolumeLevel();
 
 private:
   Ui::MainWindow *ui;
