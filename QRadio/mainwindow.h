@@ -15,8 +15,8 @@ public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
-public slots:
-  // void displayVolumeLevel();
+private slots:
+  void displayVolumeLevel();
 
 private:
   Ui::MainWindow *ui;

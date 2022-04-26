@@ -26,7 +26,7 @@ public slots:
   void setValue(qreal);
 
 signals:
-  void frequencyChanged(qreal);
+  // void frequencyChanged(qreal);
   void dialPositionChanged(qreal);
 
 protected:

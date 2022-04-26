@@ -142,6 +142,8 @@
      <string>File</string>
     </property>
     <addaction name="actionFile"/>
+    <addaction name="actionLoad_Presets"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -154,7 +156,17 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionFile">
    <property name="text">
-    <string>File</string>
+    <string>Save Presets</string>
+   </property>
+  </action>
+  <action name="actionLoad_Presets">
+   <property name="text">
+    <string>Load Presets</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>

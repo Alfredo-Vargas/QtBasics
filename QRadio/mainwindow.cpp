@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,10 +11,19 @@ MainWindow::MainWindow(QWidget *parent)
   QDataStream in(&zendersFile);
   in.setVersion(QDataStream::Qt_5_0);
   // connect(ui->dialVolume, &QDial::objectNameChanged, ui->lineEditStatus, &MainWindow::displayVolumeLevel);
+  connect(ui->dialVolume, &QDial::valueChanged, this, &MainWindow::displayVolumeLevel);
+  connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::displayVolumeLevel() {
+  ui->lineEditStatus->setText("");
+  QString volumeFeedback = "Volume at " + QString::number(ui->dialVolume->value());
+  volumeFeedback = volumeFeedback + ui->lineEditStatus->text() + "% Listening to QMusic";
+  ui->lineEditStatus->setText(volumeFeedback);
 }
 
