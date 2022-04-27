@@ -40,7 +40,6 @@ protected:
   // qreal pixelToFrequency(int pixel);
 
 private:
-  // qreal m_position = 975;
   qreal m_position = 870;
   qreal m_hmp = 0.2;  // horizontal margin percentage
   qreal m_horizontalMargin = 20;

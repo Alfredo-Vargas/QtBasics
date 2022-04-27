@@ -7,23 +7,31 @@ MainWindow::MainWindow(QWidget *parent)
 {
   ui->setupUi(this);
   QFile zendersFile("/home/alfredo/projects/QtBasics/QRadio/zendersGent.dat");
-  if (!zendersFile.open(QIODevice::ReadOnly)) {
+  if (!zendersFile.open(QIODevice::ReadWrite)) {
     qFatal("Could not open the file zendersGent.dat");
   }
-  QDataStream outFromFile(&zendersFile);
-  outFromFile.setVersion(QDataStream::Qt_5_0);
-  // m_zenders = outFromFile.readLine();
-  QString firstkey = "";
-  QString firstvalue = "";
-  outFromFile >> firstkey;
-  outFromFile >> firstvalue;
-  // qDebug() << "The first key is: " << firstkey;
-  // qDebug() << "The first value is: " << firstvalue;
+  QDataStream fromToFile(&zendersFile);
+  fromToFile.setVersion(QDataStream::Qt_5_0);
 
+  QStringList frequencies;
+  QStringList radioNames;
+  while (!fromToFile.atEnd()) {
+    QString tempFrequency;
+    QString tempRadioName;
+    fromToFile >> tempFrequency;
+    fromToFile >> tempRadioName;
+    m_zenders.insert(tempFrequency, tempRadioName);
+  }
+  zendersFile.close();
+
+  // qDebug() << "Testing the QMap m_zenders[88.60]=QMusic: " << m_zenders["88.60"];
 
   // We define the layout of the groupBoxPresets
   QHBoxLayout *groupBoxPresetsLayout = new QHBoxLayout();
   ui->groupBoxPresets->setLayout(groupBoxPresetsLayout);
+
+  // We activate the StatusLine
+  displayVolumeLevel();
 
   // Here begins the connections
   connect(ui->dialVolume, &QDial::valueChanged, this, &MainWindow::displayVolumeLevel);
@@ -42,7 +50,18 @@ MainWindow::~MainWindow()
 void MainWindow::displayVolumeLevel() {
   ui->lineEditStatus->setText("");
   QString volumeFeedback = "Volume at " + QString::number(ui->dialVolume->value());
-  volumeFeedback = volumeFeedback + ui->lineEditStatus->text() + "% Listening to QMusic";
+  volumeFeedback = volumeFeedback + ui->lineEditStatus->text() + "% Listening to ";
+
+  qreal current_frequency = ui->fmRule->value() / 10;
+  QString radioKey = QString::number(current_frequency, 'f', 2);
+
+  if (m_zenders.contains(radioKey)) {
+    volumeFeedback = volumeFeedback + m_zenders[radioKey];
+  }
+  else {
+    volumeFeedback = volumeFeedback + radioKey + " FM";
+  }
+
   ui->lineEditStatus->setText(volumeFeedback);
 }
 
@@ -50,6 +69,7 @@ void MainWindow::changeIndicatorPositionThroughDial() {
   qreal current_value = ui->dialFrequency->value();
   ui->fmRule->setValue(current_value);
   update();
+  displayVolumeLevel();
 }
 
 void MainWindow::changeDialPositionThroughIndicator() {
@@ -58,10 +78,28 @@ void MainWindow::changeDialPositionThroughIndicator() {
   // qDebug() << "The value of the dial is: " << ui->dialFrequency->value();
   ui->dialFrequency->setValue(ui->fmRule->value());
   update();
+  displayVolumeLevel();
 }
 
 void MainWindow::addButtonToPresets() {
   QPushButton *newPreset = new QPushButton();
-  newPreset->setText("My Radio Favorita");
+  qreal current_frequency = ui->fmRule->value() / 10;
+  QString radioKey = QString::number(current_frequency, 'f', 2);
+
+  if (m_zenders.contains(radioKey)) {
+    newPreset->setText(m_zenders[radioKey]);
+  }
+  else {
+    newPreset->setText(radioKey + " FM");
+  }
   ui->groupBoxPresets->layout()->addWidget(newPreset);
+  connect(newPreset, &QPushButton::clicked, this, [=]
+          {
+            qreal buttonFrequency = radioKey.toDouble();
+            ui->fmRule->setValue(buttonFrequency);
+            emit ui->fmRule->dialPositionChanged(buttonFrequency);
+          }
+        );
 }
+
+// TODO: fix the frequency given when clicking the dynamically added PresetButtons

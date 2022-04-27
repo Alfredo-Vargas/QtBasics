@@ -1,0 +1,22 @@
+Short comments:
+At the beginning and at the end of a binary file there is the HEX code 0x0a which
+does not have an equivalent in ASCII code. It is a file type declarator?
+
+CHAR                  HEX
+'\0'                  00
+'\n'                  0A
+ESPACE                20
+FILE SEPARATOR        1C        
+0                     30
+1                     31
+2                     32
+3                     33
+4                     34
+5                     35
+6                     36
+7                     37
+8                     38
+9                     39
+
+.                     2E
+"                     22

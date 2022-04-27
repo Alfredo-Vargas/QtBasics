@@ -1,0 +1,20 @@
+87.90, Omroep Zeeland
+88.60, Qmusic
+89.50, VRT Klara
+90.80, Sublime Radio
+91.30, NRJ (Vlaanderen)
+91.70, VRT Radio 1
+92.20, Joe
+92.40, RadioNL (Zeeland)
+92.80, Joe
+93.70, VRT Radio 2
+94.50, VRT Studio Brussel
+95.00, NPO Radio 4
+95.70, VRT Radio 1
+96.10, RTBF La Première
+96.30, BNL Radio
+97.80, NPO Radio 2
+98.20, Nostalgie (Vlaanderen)
+98.60, VRT Radio 2
+99.40, NRJ (Vlaanderen)
+99.80, NPO 3FM

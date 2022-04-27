@@ -121,7 +121,7 @@ void FmDial::paintIndicator(QPainter *painter) {
   qreal deltax = -10;
 
 
-  QString currentFrequency = QString::number(m_position / 10, 'g', 4);
+  QString currentFrequency = QString::number(m_position / 10, 'f', 2);
   painter->drawText(relative_xpos + deltax, relative_ypos + deltay,
                     relative_xpos + deltax, relative_ypos, 0, currentFrequency);
 
