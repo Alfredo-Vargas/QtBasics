@@ -7,16 +7,17 @@
         "-m64",
         "-pipe",
         "-g",
+        "-std=gnu++11",
         "-Wall",
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/lab5/filechooser",
+        "-I/home/pacha/projects/QtBasics/myMainWin1",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/lab5/build-filechooser-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/pacha/projects/QtBasics/build-myMainWin1-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
@@ -25,10 +26,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/pacha/projects/QtBasics/lab5/filechooser/main.cpp"
+        "/home/pacha/projects/QtBasics/myMainWin1/main.cpp"
     ],
-    "directory": "/home/pacha/projects/QtBasics/lab5/build-filechooser-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/lab5/filechooser/main.cpp"
+    "directory": "/home/pacha/projects/QtBasics/build-myMainWin1-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/pacha/projects/QtBasics/myMainWin1/main.cpp"
 },
 {
     "arguments": [
@@ -38,16 +39,17 @@
         "-m64",
         "-pipe",
         "-g",
+        "-std=gnu++11",
         "-Wall",
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/lab5/filechooser",
+        "-I/home/pacha/projects/QtBasics/myMainWin1",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/lab5/build-filechooser-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/pacha/projects/QtBasics/build-myMainWin1-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
@@ -56,10 +58,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/pacha/projects/QtBasics/lab5/filechooser/filechooser.cpp"
+        "/home/pacha/projects/QtBasics/myMainWin1/mainwindow.cpp"
     ],
-    "directory": "/home/pacha/projects/QtBasics/lab5/build-filechooser-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/lab5/filechooser/filechooser.cpp"
+    "directory": "/home/pacha/projects/QtBasics/build-myMainWin1-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/pacha/projects/QtBasics/myMainWin1/mainwindow.cpp"
 },
 {
     "arguments": [
@@ -69,16 +71,17 @@
         "-m64",
         "-pipe",
         "-g",
+        "-std=gnu++11",
         "-Wall",
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/lab5/filechooser",
+        "-I/home/pacha/projects/QtBasics/myMainWin1",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/lab5/build-filechooser-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/pacha/projects/QtBasics/build-myMainWin1-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
@@ -87,9 +90,9 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/pacha/projects/QtBasics/lab5/filechooser/filechooser.h"
+        "/home/pacha/projects/QtBasics/myMainWin1/mainwindow.h"
     ],
-    "directory": "/home/pacha/projects/QtBasics/lab5/build-filechooser-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/lab5/filechooser/filechooser.h"
+    "directory": "/home/pacha/projects/QtBasics/build-myMainWin1-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/pacha/projects/QtBasics/myMainWin1/mainwindow.h"
 }
 ]

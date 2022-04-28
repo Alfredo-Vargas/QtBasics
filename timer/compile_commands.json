@@ -1,7 +1,7 @@
 [
 {
     "arguments": [
-        "/usr/bin/clang++",
+        "/usr/bin/g++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -12,23 +12,23 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/timer",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
+        "-I/home/pacha/projects/QtBasics/timer",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/pacha/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/alfredo/projects/QtBasics/timer/main.cpp"
+        "/home/pacha/projects/QtBasics/timer/main.cpp"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/timer/main.cpp"
+    "directory": "/home/pacha/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/pacha/projects/QtBasics/timer/main.cpp"
 },
 {
     "arguments": [
-        "/usr/bin/clang++",
+        "/usr/bin/g++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -39,23 +39,23 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/timer",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
+        "-I/home/pacha/projects/QtBasics/timer",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/pacha/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/alfredo/projects/QtBasics/timer/timer.cpp"
+        "/home/pacha/projects/QtBasics/timer/timer.cpp"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/timer/timer.cpp"
+    "directory": "/home/pacha/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/pacha/projects/QtBasics/timer/timer.cpp"
 },
 {
     "arguments": [
-        "/usr/bin/clang++",
+        "/usr/bin/g++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -66,18 +66,18 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/timer",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
+        "-I/home/pacha/projects/QtBasics/timer",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/pacha/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
         "-DQT_QML_DEBUG",
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/alfredo/projects/QtBasics/timer/timer.h"
+        "/home/pacha/projects/QtBasics/timer/timer.h"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/timer/timer.h"
+    "directory": "/home/pacha/projects/QtBasics/build-timer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/pacha/projects/QtBasics/timer/timer.h"
 }
 ]
