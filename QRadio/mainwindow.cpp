@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
   ui->setupUi(this);
-  QFile zendersFile("/home/alfredo/projects/QtBasics/QRadio/zendersGent.dat");
+  QFile zendersFile("/home/pacha/projects/QtBasics/QRadio/zendersGent.dat");
   if (!zendersFile.open(QIODevice::ReadWrite)) {
     qFatal("Could not open the file zendersGent.dat");
   }
@@ -102,4 +102,3 @@ void MainWindow::addButtonToPresets() {
         );
 }
 
-// TODO: fix the frequency given when clicking the dynamically added PresetButtons
