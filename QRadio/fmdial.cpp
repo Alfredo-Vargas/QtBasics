@@ -124,26 +124,8 @@ void FmDial::paintIndicator(QPainter *painter) {
   QString currentFrequency = QString::number(m_position / 10, 'f', 2);
   painter->drawText(relative_xpos + deltax, relative_ypos + deltay,
                     relative_xpos + deltax, relative_ypos, 0, currentFrequency);
-
-  // painter->restore();
 }
 
-// int FmDial::frequencyToPixel(qreal freq) {
-//
-//   int horizontal_margin = m_hmp * width() / 2;
-//   int w = width() - horizontal_margin * 2;
-//   qreal pixelVal = (w / (m_maxFrequency - m_minFrequency)) * (freq - m_minFrequency) + horizontal_margin;
-//   pixelVal = qBound(0, (int)pixelVal, width());
-//   return pixelVal;
-// }
-//
-// qreal FmDial::pixelToFrequency(int pixel) {
-//   int horizontal_margin = m_hmp * width() / 2;
-//   int w = width() - horizontal_margin * 2;
-//   qreal freqVal = m_minFrequency + ((m_maxFrequency - m_minFrequency) / w) * (pixel - horizontal_margin);
-//   freqVal = qRound(freqVal * 10) / 10.0;
-//   return freqVal;
-// }
 
 void FmDial::mousePressEvent(QMouseEvent *me) {
   qreal ymax = (1 - m_hmp / 2) * width();
