@@ -1,0 +1,25 @@
+When creating a custom widget, do not forget to use:
+In header:
+1. Q_OBJECT
+2. Q_PROPERTY(const int value READ value WRITE setValue NOTIFY signalFunction)
+
+
+Whenever one uses QPainter:
+In header file
+QSize sizeHint() const;
+In cpp file
+QSize FmDial::sizeHint() const {
+  return QSize(400, 50); 
+}
+In header file
+
+void mousePressEvent(QMouseEvent*);
+void mouseMoveEvent(QMouseEvent *);
+void mouseReleaseEvent(QMouseEvent *);
+protected:
+  void paintEvent(QPaintEvent*);
+  void paintIndicator(QPainter*);
+
+To draw margin:
+QRect outerFrame(0, 0, width(), height());
+painter.drawRect(outerFrame);

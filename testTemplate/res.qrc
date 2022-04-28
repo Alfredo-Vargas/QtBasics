@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>extra/clock_needle.png</file>
+        <file>src/clock.png</file>
+    </qresource>
+</RCC>

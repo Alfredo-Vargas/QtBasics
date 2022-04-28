@@ -16,7 +16,14 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="needle">
+     <widget class="QLabel" name="needle1">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="needle2">
       <property name="text">
        <string/>
       </property>
@@ -34,7 +41,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="src/src.qrc">:/clock.png</pixmap>
+       <pixmap resource="res.qrc">:/src/clock.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -92,7 +99,7 @@
   </action>
  </widget>
  <resources>
-  <include location="src/src.qrc"/>
+  <include location="res.qrc"/>
  </resources>
  <connections/>
 </ui>
