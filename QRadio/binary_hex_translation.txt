@@ -1,7 +1,3 @@
-Short comments:
-At the beginning and at the end of a binary file there is the HEX code 0x0a which
-does not have an equivalent in ASCII code. It is a file type declarator?
-
 CHAR                  HEX
 '\0'                  00
 '\n'                  0A
