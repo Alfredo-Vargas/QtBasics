@@ -96,7 +96,7 @@ void MainWindow::addButtonToPresets() {
   connect(newPreset, &QPushButton::clicked, this, [=]
           {
             qreal buttonFrequency = radioKey.toDouble();
-            ui->fmRule->setValue(buttonFrequency);
+            ui->fmRule->setValue(buttonFrequency * 10);
             emit ui->fmRule->dialPositionChanged(buttonFrequency);
           }
         );
