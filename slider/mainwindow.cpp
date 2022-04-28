@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
   ui->groupBoxTestArea->setVisible(false);
   ui->groupBoxButtons->setVisible(false);
 
-  m_cycleTimer = new QTimer();
+  m_cycleTimer = new QTimer(this);
   ui->actionSave->setDisabled(true);
   
   connect(ui->initOkButton, &QPushButton::clicked, this, &MainWindow::showTestAreaButtons);
@@ -153,6 +153,3 @@ void MainWindow::loadFromFile() {
     }
   }
 }
-
-// QUESTIONS:
-// 1. How to avoid the red lines in the Init GroupBox  (for label and spinbox)?
