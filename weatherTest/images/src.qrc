@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>001_Sunny and dry weather.png</file>
+        <file>002_Heavily cloudy but dry.png</file>
+        <file>003_Snow.png</file>
+        <file>004_Dense fog.png</file>
+        <file>005_Fairly sunny and dry weather.png</file>
+        <file>006_Partly cloudy with light drizzle at intervals.png</file>
+        <file>007_Cloudy skies with some rain.png</file>
+        <file>008_Cloudy skies with some heavy rain.png</file>
+        <file>009_Cloudy with thunderstorms.png</file>
+    </qresource>
+</RCC>
