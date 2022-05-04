@@ -7,7 +7,6 @@
 #include <QFileInfo>
 #include <QDebug>
 #include <QDir>
-#include <QVBoxLayout>
 
 class WeatherWidget : public QWidget
 {
@@ -31,7 +30,6 @@ protected:
 private:
   int m_type;
   QPixmap *m_background;
-  // QVBoxLayout *m_layout;
 
 };
 

@@ -8,14 +8,14 @@ WeatherWidget::WeatherWidget(QWidget *parent)
   painter.setBrush(Qt::white);
   painter.drawRect(0, 0, 360, 360);
 
-
-  // m_layout = new QVBoxLayout(this);
   QFileInfoList iconsList = QDir(":/img/").entryInfoList();
   foreach(const QFileInfo &info, iconsList) {
     QString name = info.fileName();
     m_background = new QPixmap();
     m_background->load(name);
     qDebug() << name;
+
+    painter.drawImage(0, 0, m_background->toImage());
     // We need to paint here the image
     // painter.drawImage(name);
 
@@ -46,6 +46,13 @@ void WeatherWidget::paintEvent(QPaintEvent *) {
   painter.setBrush(Qt::white);
   painter.drawRect(0, 0, 360, 360);
 
+  QFileInfoList iconsList = QDir(":/img/").entryInfoList();
+  foreach(const QFileInfo &info, iconsList) {
+    QString name = info.fileName();
+    m_background = new QPixmap();
+    m_background->load(name);
+    painter.drawImage(0, 0, m_background->toImage());
+  }
   // We need to paint here the image
   // painter.drawImage(name);
 }
