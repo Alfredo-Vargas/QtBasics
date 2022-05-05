@@ -7,6 +7,7 @@
 #include <QFileInfo>
 #include <QDebug>
 #include <QDir>
+#include <QMouseEvent>
 
 class WeatherWidget : public QWidget
 {
@@ -21,16 +22,17 @@ public:
   void setWeatherType(int);
 
 signals:
-  void weatherTypeChanged(QString wheatherType);
+  void weatherTypeChanged(int wheatherType);
 
 protected:
   void paintEvent(QPaintEvent*);
   void paintImage(QPainter*);
+  void mousePressEvent(QMouseEvent*);
+  void paintFrameOnSelected(QPainter*);
 
 private:
-  int m_type;
+  int m_type = -1;
   QPixmap *m_background;
-
 };
 
 #endif // WEATHERWIDGET_H

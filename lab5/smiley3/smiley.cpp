@@ -82,8 +82,6 @@ void Smiley::paintEye(QPainter *painter, const QPoint &pt, int size, const QPoin
 }
 
 void Smiley::paintSmile(QPainter *painter, const QRect &r, int angle) {
-    painter->save();
-    
     // enter your code here
     painter->save();
     QPen pen(Qt::black);
