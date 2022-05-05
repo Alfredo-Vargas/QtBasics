@@ -8,11 +8,11 @@ WeatherWidget::WeatherWidget(QWidget *parent)
   painter.setBrush(Qt::white);
   painter.drawRect(0, 0, 360, 360);
 
-  int imageCounter = 0;
+  int imageCounter = 1;
   qreal x0 = 0;
   qreal y0 = 0;
-  qreal dx = 100;
-  qreal dy = 100;
+  qreal dx = 120;
+  qreal dy = 120;
   QFileInfoList iconsList = QDir(":/img/").entryInfoList();
   foreach(const QFileInfo &info, iconsList) {
     QString name = info.fileName();
@@ -25,6 +25,7 @@ WeatherWidget::WeatherWidget(QWidget *parent)
       x0 = x0 + dx;
       if (imageCounter % 3 == 0) {
         y0 = y0 + dy;
+        x0 = 0;
       }
     }
   }
@@ -53,11 +54,11 @@ void WeatherWidget::paintEvent(QPaintEvent *) {
   painter.setBrush(Qt::white);
   painter.drawRect(0, 0, 360, 360);
 
-  int imageCounter = 0;
+  int imageCounter = 1;
   qreal x0 = 0;
   qreal y0 = 0;
-  qreal dx = 100;
-  qreal dy = 100;
+  qreal dx = 120;
+  qreal dy = 120;
 
   QFileInfoList iconsList = QDir(":/img/").entryInfoList();
   foreach(const QFileInfo &info, iconsList) {
@@ -67,10 +68,13 @@ void WeatherWidget::paintEvent(QPaintEvent *) {
       qDebug() << name;
       // painter.drawPixmap(0, 0, 10, 10, m_background);
       painter.drawImage(x0, y0, m_background->toImage());
+     // Update the new positions
       x0 = x0 + dx;
       if (imageCounter % 3 == 0) {
         y0 = y0 + dy;
+        x0 = 0;
       }
+      imageCounter += 1;
     }
   }
 }
