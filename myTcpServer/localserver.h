@@ -5,7 +5,7 @@
 #include <QTcpSocket>
 #include <QTextStream>
 
-class QLocalSocket;
+class QTcpSocket;
 
 class LocalServer : public QTcpServer
 {

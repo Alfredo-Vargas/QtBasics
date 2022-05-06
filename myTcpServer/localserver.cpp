@@ -5,7 +5,7 @@ LocalServer::LocalServer(QObject *parent)
 {
   m_socket = nullptr;
 
-  connect(this, &LocalServer::newConnection, [=] {
+  connect(this, &LocalServer::newConnection, this, [=] {
             m_socket = nextPendingConnection();
           });
 
