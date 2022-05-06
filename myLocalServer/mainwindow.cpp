@@ -21,7 +21,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonStart_clicked()
 {
-  if (!m_localServer->listen(QHostAddress::Any, ui->spinBox->value())) {
+  if (!m_localServer->listen(ui->labelServerName->text())) {
     QMessageBox::critical(this, "Error", m_localServer->errorString());
     ui->listWidget->addItem(m_localServer->errorString());
   } else {

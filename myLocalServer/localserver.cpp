@@ -1,7 +1,7 @@
 ﻿#include "localserver.h"
 
 LocalServer::LocalServer(QObject *parent)
-    : QTcpServer{parent}
+    : QLocalServer{parent}
 {
   m_socket = nullptr;
 

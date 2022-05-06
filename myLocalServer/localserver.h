@@ -1,13 +1,13 @@
 ﻿#ifndef LOCALSERVER_H
 #define LOCALSERVER_H
 
-#include <QTcpServer>
-#include <QTcpSocket>
+#include <QLocalServer>
+#include <QLocalSocket>
 #include <QTextStream>
 
 class QLocalSocket;
 
-class LocalServer : public QTcpServer
+class LocalServer : public QLocalServer
 {
   Q_OBJECT
 public:
@@ -16,7 +16,7 @@ public:
   void sendMessage(const QString);
 
 private:
-  QTcpSocket *m_socket;
+  QLocalSocket *m_socket;
 
 };
 

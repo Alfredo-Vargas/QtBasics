@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTcpSocket>
+#include <QLocalSocket>
 #include <QTextStream>
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +26,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QTcpSocket *m_socket;
+    QLocalSocket *m_socket;
 };
 #endif // MAINWINDOW_H

@@ -20,12 +20,19 @@
       <item>
        <widget class="QLabel" name="labelServerName">
         <property name="text">
-         <string>Server Name:</string>
+         <string>Server Port:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEditServerName"/>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>64000</number>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

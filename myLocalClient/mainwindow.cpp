@@ -6,9 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    m_socket = new QTcpSocket(this);
+    m_socket = new QLocalSocket(this);
 
-   connect(m_socket, &QTcpSocket::readyRead, [=]() {
+   connect(m_socket, &QLocalSocket::readyRead, [=]() {
           QTextStream T(m_socket);
           ui->listWidget->addItem(T.readAll());
            });
@@ -22,12 +22,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonConnect_clicked()
 {
-  m_socket->connectToHost(ui->labelServerName->text(), ui->spinBoxPort->value());
+  m_socket->connectToServer(ui->labelServerName->text());
   if (m_socket->waitForConnected(1000)){
     ui->listWidget->addItem("Connected to server successfull");
   } else {
     ui->listWidget->addItem(m_socket->errorString());
   }
+
 }
 
 void MainWindow::on_pushButtonQuit_clicked()

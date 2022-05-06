@@ -27,23 +27,6 @@
       <item>
        <widget class="QLineEdit" name="lineEdit"/>
       </item>
-      <item>
-       <widget class="QLabel" name="labelPort">
-        <property name="text">
-         <string>Server Port:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBoxPort">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>64000</number>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
     <item>
