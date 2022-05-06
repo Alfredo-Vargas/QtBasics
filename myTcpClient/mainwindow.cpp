@@ -22,7 +22,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonConnect_clicked()
 {
-  m_socket->connectToHost(ui->labelServerName->text(), ui->spinBoxPort->value());
+  m_socket->connectToHost("localhost", ui->spinBoxPort->value());
   if (m_socket->waitForConnected(1000)){
     ui->listWidget->addItem("Connected to server successfull");
   } else {

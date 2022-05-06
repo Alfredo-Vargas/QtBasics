@@ -8,9 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
   ui->setupUi(this);
   m_localServer = new LocalServer(this);
 
-
-  // connect(ui->actionSet_Directory, &QAction::triggered, this, &QApplication::quit);
-  // connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
 }
 
 MainWindow::~MainWindow()
@@ -21,11 +18,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonStart_clicked()
 {
+  QHostAddress serverAddress;
+  // serverAddress.setAddress("127.0.0.1");
   if (!m_localServer->listen(QHostAddress::Any, ui->spinBox->value())) {
     QMessageBox::critical(this, "Error", m_localServer->errorString());
     ui->listWidget->addItem(m_localServer->errorString());
   } else {
     ui->listWidget->addItem("New connection from ::1");
+    ui->listWidget->addItem("Connected to: " + m_localServer->serverAddress().toString());
     QMessageBox::information(this, "Server", "Server started");
   }
 }
