@@ -21,7 +21,7 @@ public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
   void chooseRootDirectory(void);
-  void logHostConnection(void);
+  void logNewConnection(void);
 
 
 private:
