@@ -10,9 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
   m_nam = new QNetworkAccessManager();
 
   connect(m_tcpServer, &MyTcpServer::newConnection, this, &MainWindow::logNewConnection);
-  // [=](){
-  //           ui->plainTextEdit->insertPlainText("New connection from ::1\n");
-  //         } );
   connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
   connect(ui->actionSet_Directory, &QAction::triggered, this, &MainWindow::chooseRootDirectory);
 
@@ -40,20 +37,29 @@ void MainWindow::chooseRootDirectory(void) {
       initFeedback = "The (mini) HTTP server is running.\n surf to http://" + serverAddress.toString() + ":64000";
       ui->labelStatus->setText(initFeedback);
 
-      // ui->listWidget->addItem("New connection from ::1");
-      // ui->listWidget->addItem("Connected to: " + m_localServer->serverAddress().toString());
-      // QMessageBox::information(this, "Server", "Server started");
     }
-    // m_nam->connectToHost("192.168.0.2",64000);
-    m_nam->get(QNetworkRequest(QUrl("http://192.168.0.2:64000")));
+    // m_nam->get(QNetworkRequest(QUrl("http://192.168.0.2:64000")));
   }
 
 }
 
-void MainWindow::logNewConnection(void) {
-
-  // connect(m_nam, &QNetworkAccessManager::finished, this, [=](){
-  //           ui->plainTextEdit->insertPlainText("New connection from ::1");
-  //         });
-  ui->plainTextEdit->insertPlainText("New connection from ::1\n");
+void MainWindow::logNewConnection() {
+  QString clientAddress = m_tcpServer->getServerSocket()->peerAddress().toString();
+  int clientPort = m_tcpServer->getServerSocket()->peerPort();
+  QString clientID = clientAddress + ":" + QString::number(clientPort) +"\n";
+  QString feedback = "New connection from " + clientID;
+  ui->plainTextEdit->insertPlainText(feedback);
+  if (m_tcpServer->getFileRequested() != "") {
+    QString fileRequested = m_tcpServer->getFileRequested();
+    ui->plainTextEdit->insertPlainText("Requested for file: \"" + fileRequested + "\"\n");
+  }
+  QString fileToTransfer = m_rootDir + m_tcpServer->getFileRequested();
+  qDebug() << fileToTransfer;
+  if (QFileInfo::exists(fileToTransfer)) {
+    QString feedbackFile = "Sending Data from file: ";
+    ui->plainTextEdit->insertPlainText(feedbackFile + fileToTransfer + "...\n");
+  }
+  else {
+  m_tcpServer->getServerSocket()->write("HTTP/1.1 404 Not Found\r\n\r\n" );
+  }
 }
