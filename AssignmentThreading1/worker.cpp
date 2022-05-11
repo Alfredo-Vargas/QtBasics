@@ -5,3 +5,25 @@ Worker::Worker(QObject *parent)
 {
 
 }
+/*
+void Worker::doWork(int sharedData) {
+  int result;
+  // Here is the expensive or blocking operation 
+   qDebug() << "Worker started working";
+   for(int i = 0; i < 1000; i++){
+     qDebug() << i;
+     mutex.lock();
+     sharedData = 0xFFFFFFFF;
+     QThread::msleep(90);
+     sharedData = i;
+     mutex.unlock();
+     QThread::msleep(10);
+     if(this->stop) break; // What is stop here? this?
+   }
+   qDebug() << "Worker work done";
+   QThread::currentThread()->quit();
+    result = sharedData;
+  emit resultReady(result);
+}
+*/
+
