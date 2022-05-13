@@ -28,7 +28,7 @@ void MainWindow::chooseRootDirectory(void) {
   if (m_rootDir != "") {
 
     // Change this with the the IP of the interface which will act as a Server
-    QHostAddress serverAddress("192.168.0.2");
+    QHostAddress serverAddress("10.67.45.209");
     if (!m_tcpServer->listen(serverAddress, 64000)) {
       QMessageBox::critical(this, "Error", m_tcpServer->errorString());
     } 

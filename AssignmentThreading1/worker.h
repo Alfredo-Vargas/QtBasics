@@ -12,13 +12,17 @@ class Worker : public QObject
 public:
   explicit Worker(QObject *parent = nullptr);
   QMutex mutex;
+  void stopWork(void);
 
 public slots:
-  // void doWork(int);
+  void doWork(int);
     
 signals:
   void resultReady(int);
 
+private:
+  bool stop = false;
 };
 
 #endif // WORKER_H
+
