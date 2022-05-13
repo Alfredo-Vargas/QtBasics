@@ -15,7 +15,7 @@ public:
   void stopWork(void);
 
 public slots:
-  void doWork(int);
+  void doWork(int*);
     
 signals:
   void resultReady(int);

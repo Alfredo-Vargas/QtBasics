@@ -11,11 +11,10 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
 QT_END_NAMESPACE
 
-
-
 class Dialog : public QDialog
 {
   Q_OBJECT
+  QThread workerThread;
 
 public:
   Dialog(QWidget *parent = nullptr);
@@ -23,14 +22,13 @@ public:
 
   private slots:
 
-  void onWorkerStart(void);
+  // void onWorkerStart(void);
   void onWorkerStop(void);
-  void updateLabelCounter(void);
+  void updateLabelCounter(int);
 
   private:
   Ui::Dialog *ui;
   QTimer *m_dialogTimer;
-  QThread workerThread;
   Worker *worker;
 };
 #endif // DIALOG_H
