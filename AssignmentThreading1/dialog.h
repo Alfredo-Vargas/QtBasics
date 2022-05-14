@@ -24,12 +24,15 @@ public:
 
   // void onWorkerStart(void);
   void onWorkerStop(void);
-  void updateLabelCounter(int);
+  void updateLabelCounter();
 
   private:
   Ui::Dialog *ui;
   QTimer *m_dialogTimer;
   Worker *worker;
+  int sharedData = 0;
+  // int *sharedDataPtr = &sharedData;
+
 };
 #endif // DIALOG_H
 

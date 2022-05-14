@@ -9,25 +9,34 @@ Dialog::Dialog(QWidget *parent)
 
   // We create the sharedData and a pointer to it:
   // Reference cannot be modified and we need to modify it in the worker thread!
-  int sharedData = 0;
+  // int sharedData = 0;
   int *shareDataPtr = &sharedData;
-
-  // Memory allocation for QTimer and Worker
+/*
+  // Memory allocation for QTimer
   m_dialogTimer = new QTimer(this);
-  m_dialogTimer->start();
+  m_dialogTimer->start(50);
+*/
+  // Memory allocation for Worker
   worker = new Worker;
+
+  // connect(m_dialogTimer, &QTimer::timeout, this, [=]{updateLabelCounter();});
+  // connect(m_dialogTimer, &QTimer::timeout, this, [=]{qDebug() << "update!";});
 
   qDebug() << "The GUI Thread ID is:\t" << QThread::currentThreadId();
   // We move the worker thread initially assigned to the GUI thread to the its own subthread
   worker->moveToThread(&workerThread);
   // CONNECTIONS:
   // To start the worker thread whenever the start button is clicked
+
   connect(ui->pushButtonStart, &QPushButton::clicked, worker, [=]{
           worker->doWork(shareDataPtr);
           });
+
   // To stop the worker thread whenever the stop button is clicked
   connect(ui->pushButtonStop, &QPushButton::clicked, this, &Dialog::onWorkerStop);
   // To update the label after work of the worker work is ready or the button stop was pressed
+
+
   // connect(m_dialogTimer, &QTimer::timeout, this, &Dialog::updateLabelCounter);
   connect(worker, &Worker::resultReady, this, &Dialog::updateLabelCounter);
   // To delete Worker once thread is finished
@@ -54,8 +63,8 @@ void Dialog::onWorkerStop(void) {
   worker->stopWork();
 }
 
-void Dialog::updateLabelCounter(int sharedData) {
-  qDebug() << "The Thread ID onUpdateLabel is:\t" << QThread::currentThreadId();
+void Dialog::updateLabelCounter() {
+  // qDebug() << "The Thread ID onUpdateLabel is:\t" << QThread::currentThreadId();
   ui->labelCounter->setText(QString::number(sharedData));
 }
 

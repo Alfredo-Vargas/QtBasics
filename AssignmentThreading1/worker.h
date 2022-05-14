@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QMutex>
 #include <QThread>
+#include <QTimer>
 
 class Worker : public QObject
 {
@@ -22,6 +23,7 @@ signals:
 
 private:
   bool stop = false;
+  QTimer *workerTimer;
 };
 
 #endif // WORKER_H

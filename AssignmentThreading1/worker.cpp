@@ -4,6 +4,14 @@ Worker::Worker(QObject *parent)
     : QObject{parent}
 {
 
+
+
+  // Memory allocation for QTimer
+  workerTimer = new QTimer(this);
+  workerTimer->start(50);
+
+  connect(workerTimer, &QTimer::timeout, this, [=]{
+          resultReady(2);});
 }
 
 void Worker::doWork(int *shareDataPtr) {
