@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include "worker.h"
-#include <QThread>
 #include <QTimer>
 #include <QDebug>
 
@@ -14,24 +13,19 @@ QT_END_NAMESPACE
 class Dialog : public QDialog
 {
   Q_OBJECT
-  QThread workerThread;
 
 public:
   Dialog(QWidget *parent = nullptr);
   ~Dialog();
 
-  private slots:
-
-  // void onWorkerStart(void);
-  void onWorkerStop(void);
-  void updateLabelCounter();
-
   private:
   Ui::Dialog *ui;
-  QTimer *m_dialogTimer;
-  Worker *worker;
-  int sharedData = 0;
-  // int *sharedDataPtr = &sharedData;
+  QTimer *m_dialogTimerPtr;
+  QThread *m_workerThreadPtr;
+  QMutex *m_mutexPtr;
+  int *m_sharedDataPtr;
+  bool *m_stopPtr;
+  Worker *m_workerPtr;
 
 };
 #endif // DIALOG_H

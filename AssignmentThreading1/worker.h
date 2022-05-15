@@ -5,25 +5,26 @@
 #include <QDebug>
 #include <QMutex>
 #include <QThread>
-#include <QTimer>
+
+#define QD qDebug() << __FILE__ << __LINE__
 
 class Worker : public QObject
 {
   Q_OBJECT
 public:
   explicit Worker(QObject *parent = nullptr);
-  QMutex mutex;
-  void stopWork(void);
+  void passQMutex(QMutex*);
+  void passSharedData(int*);
+  void passStopBoolean(bool*);
 
 public slots:
-  void doWork(int*);
-    
-signals:
-  void resultReady(int);
+  void doWork(void);
 
 private:
-  bool stop = false;
-  QTimer *workerTimer;
+  QMutex *m_mutexPtr;
+  int *m_sharedDataPtr;
+  bool *m_stopPtr;
+    
 };
 
 #endif // WORKER_H
