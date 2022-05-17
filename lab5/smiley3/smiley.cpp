@@ -68,6 +68,7 @@ QPoint computePupil (const QPoint &center, const QPoint &focus, int eyeWidth, in
 
 void Smiley::paintEye(QPainter *painter, const QPoint &pt, int size, const QPoint &focus) {
     painter->save();
+
     QPen pen(Qt::black);
     pen.setWidth(2);
     painter->setPen(pen);
@@ -78,6 +79,7 @@ void Smiley::paintEye(QPainter *painter, const QPoint &pt, int size, const QPoin
     painter->setPen(pen);
     painter->setBrush(Qt::black);
     painter->drawEllipse(computePupil(pt, focus, size/2, size), size/8, size/8);
+
     painter->restore();
 }
 
@@ -91,7 +93,7 @@ void Smiley::paintSmile(QPainter *painter, const QRect &r, int angle) {
     painter->drawArc(r, -angle*16, -(180 - 2*angle )*16);
 
     // Smiley has restore !!!
-    // painter->restore();
+    painter->restore();
 }
 
 void Smiley::mousePressEvent(QMouseEvent *me) {

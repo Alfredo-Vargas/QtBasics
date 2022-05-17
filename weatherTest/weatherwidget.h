@@ -9,6 +9,8 @@
 #include <QDir>
 #include <QMouseEvent>
 
+#define QD qDebug()
+
 class WeatherWidget : public QWidget
 {
   Q_OBJECT
@@ -19,6 +21,9 @@ public:
 
   QSize sizeHint() const;
   int weatherType(void);
+  QString getWeatherString(void);
+
+public slots:
   void setWeatherType(int);
 
 signals:
@@ -29,10 +34,12 @@ protected:
   void paintImage(QPainter*);
   void mousePressEvent(QMouseEvent*);
   void paintFrameOnSelected(QPainter*);
+  void showWeatherType(void);
 
 private:
   int m_type = -1;
   QPixmap *m_background;
+  QString m_weather = " ";
 };
 
 #endif // WEATHERWIDGET_H
