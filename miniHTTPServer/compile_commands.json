@@ -1,7 +1,7 @@
 [
 {
     "arguments": [
-        "/usr/bin/g++",
+        "/usr/bin/clang++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -12,15 +12,15 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/miniHTTPServer",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/miniHTTPServer",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
         "-DQT_WIDGETS_LIB",
         "-DQT_GUI_LIB",
@@ -28,14 +28,14 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/pacha/projects/QtBasics/miniHTTPServer/main.cpp"
+        "/home/alfredo/projects/QtBasics/miniHTTPServer/main.cpp"
     ],
-    "directory": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/miniHTTPServer/main.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/miniHTTPServer/main.cpp"
 },
 {
     "arguments": [
-        "/usr/bin/g++",
+        "/usr/bin/clang++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -46,15 +46,15 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/miniHTTPServer",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/miniHTTPServer",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
         "-DQT_WIDGETS_LIB",
         "-DQT_GUI_LIB",
@@ -62,14 +62,14 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/pacha/projects/QtBasics/miniHTTPServer/mainwindow.cpp"
+        "/home/alfredo/projects/QtBasics/miniHTTPServer/mainwindow.cpp"
     ],
-    "directory": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/miniHTTPServer/mainwindow.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/miniHTTPServer/mainwindow.cpp"
 },
 {
     "arguments": [
-        "/usr/bin/g++",
+        "/usr/bin/clang++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -80,15 +80,15 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/miniHTTPServer",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/miniHTTPServer",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
         "-DQT_WIDGETS_LIB",
         "-DQT_GUI_LIB",
@@ -96,14 +96,14 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/pacha/projects/QtBasics/miniHTTPServer/mytcpserver.cpp"
+        "/home/alfredo/projects/QtBasics/miniHTTPServer/mytcpserver.cpp"
     ],
-    "directory": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/miniHTTPServer/mytcpserver.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/miniHTTPServer/mytcpserver.cpp"
 },
 {
     "arguments": [
-        "/usr/bin/g++",
+        "/usr/bin/clang++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -114,15 +114,15 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/miniHTTPServer",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/miniHTTPServer",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
         "-DQT_WIDGETS_LIB",
         "-DQT_GUI_LIB",
@@ -130,14 +130,14 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/pacha/projects/QtBasics/miniHTTPServer/mainwindow.h"
+        "/home/alfredo/projects/QtBasics/miniHTTPServer/mainwindow.h"
     ],
-    "directory": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/miniHTTPServer/mainwindow.h"
+    "directory": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/miniHTTPServer/mainwindow.h"
 },
 {
     "arguments": [
-        "/usr/bin/g++",
+        "/usr/bin/clang++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -148,15 +148,15 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/miniHTTPServer",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/miniHTTPServer",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
         "-DQT_WIDGETS_LIB",
         "-DQT_GUI_LIB",
@@ -164,14 +164,14 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/pacha/projects/QtBasics/miniHTTPServer/mytcpserver.h"
+        "/home/alfredo/projects/QtBasics/miniHTTPServer/mytcpserver.h"
     ],
-    "directory": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/miniHTTPServer/mytcpserver.h"
+    "directory": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/miniHTTPServer/mytcpserver.h"
 },
 {
     "arguments": [
-        "/usr/bin/g++",
+        "/usr/bin/clang++",
         "-c",
         "--target=x86_64-pc-linux-gnu",
         "-m64",
@@ -182,15 +182,15 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/pacha/projects/QtBasics/miniHTTPServer",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtGui",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/miniHTTPServer",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
+        "-I/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
-        "-I/home/pacha/.config/Qt/5.15.2/gcc_64/mkspecs/linux-g++",
+        "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
         "-DQT_WIDGETS_LIB",
         "-DQT_GUI_LIB",
@@ -198,9 +198,9 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
+        "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
     ],
-    "directory": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/pacha/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
+    "directory": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/build-miniHTTPServer-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
 }
 ]

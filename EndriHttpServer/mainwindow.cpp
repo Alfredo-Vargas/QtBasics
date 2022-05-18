@@ -58,7 +58,7 @@ void MainWindow::parseRequest(QTcpSocket *connection)
                           "Cache-Control: private\r\n"
                           "Pragma: no-cache\r\n"
                           "Content-type: text/html\r\n\r\n");
-        QFile file("/www/index.txt");
+        QFile file("./www/index.txt");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
             return;
 
