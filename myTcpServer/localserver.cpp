@@ -16,7 +16,7 @@ LocalServer::~LocalServer()
 
 }
 
-void:: LocalServer::sendMessage(const QString message) {
+void LocalServer::sendMessage(const QString message) {
   if (m_socket) {
     QTextStream T(m_socket);
     T << message;
