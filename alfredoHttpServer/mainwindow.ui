@@ -47,7 +47,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QTextEdit" name="serverMessage"/>
+         <widget class="QPlainTextEdit" name="serverMessage"/>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">

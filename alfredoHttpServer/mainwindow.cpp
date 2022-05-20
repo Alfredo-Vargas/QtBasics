@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
   // Ui connections
   connect(ui->actionSet_Directory, &QAction::triggered, this, &MainWindow::setRootDirectory);
+  connect(ui->pb_SendMessage, &QPushButton::clicked, this, &MainWindow::sendMessage);
   connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
   connect(ui->actionAbout_Qt, &QAction::triggered, this, &QApplication::aboutQt);
 }
@@ -94,6 +95,21 @@ void MainWindow::processMessage(void) {
 
 void MainWindow::setRootDirectory(void) {
   m_documentRoot = QFileDialog::getExistingDirectory();
+}
+
+void MainWindow::sendMessage(void) {
+  QString message = ui->serverMessage->toPlainText();
+  if (m_server->listen(m_serverAddress, m_serverPort)) {
+    QTextStream serverText(m_socket);
+    serverText << message;
+    if (m_socket->flush()) {
+      ui->serverLog->insertPlainText("Message from Server to Client send succesfully\n");
+    }
+    else {
+      ui->serverLog->insertPlainText("Error at trying sending message\n");
+    }
+  }
+
 }
 
 MainWindow::~MainWindow()

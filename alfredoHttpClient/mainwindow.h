@@ -2,6 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QTcpSocket>
+#include <QFileDialog>
+#include <QMessageBox>
+
+#define QD qDebug() << __FILE__ << __LINE__
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -12,10 +18,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
+
+public slots:
+  void tryConnection(void);
+  void logMessage(void);
 
 private:
-    Ui::MainWindow *ui;
+  Ui::MainWindow *ui;
+  QTcpSocket *m_socket;
 };
 #endif // MAINWINDOW_H

@@ -12,13 +12,13 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/alfredoHttpServer",
+        "-I/home/alfredo/projects/QtBasics/alfredoHttpClient",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
@@ -28,10 +28,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/alfredo/projects/QtBasics/alfredoHttpServer/main.cpp"
+        "/home/alfredo/projects/QtBasics/alfredoHttpClient/main.cpp"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/alfredoHttpServer/main.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/alfredoHttpClient/main.cpp"
 },
 {
     "arguments": [
@@ -46,13 +46,13 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/alfredoHttpServer",
+        "-I/home/alfredo/projects/QtBasics/alfredoHttpClient",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
@@ -62,10 +62,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++",
-        "/home/alfredo/projects/QtBasics/alfredoHttpServer/mainwindow.cpp"
+        "/home/alfredo/projects/QtBasics/alfredoHttpClient/mainwindow.cpp"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/alfredoHttpServer/mainwindow.cpp"
+    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/alfredoHttpClient/mainwindow.cpp"
 },
 {
     "arguments": [
@@ -80,13 +80,13 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/alfredoHttpServer",
+        "-I/home/alfredo/projects/QtBasics/alfredoHttpClient",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
@@ -96,10 +96,10 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/alfredo/projects/QtBasics/alfredoHttpServer/mainwindow.h"
+        "/home/alfredo/projects/QtBasics/alfredoHttpClient/mainwindow.h"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/alfredoHttpServer/mainwindow.h"
+    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/alfredoHttpClient/mainwindow.h"
 },
 {
     "arguments": [
@@ -114,13 +114,13 @@
         "-Wextra",
         "-D_REENTRANT",
         "-fPIC",
-        "-I/home/alfredo/projects/QtBasics/alfredoHttpServer",
+        "-I/home/alfredo/projects/QtBasics/alfredoHttpClient",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtWidgets",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtGui",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtNetwork",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/include/QtCore",
-        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+        "-I/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
         "-I/usr/include/libdrm",
         "-I/home/alfredo/.config/Qt/5.15.2/gcc_64/mkspecs/linux-clang",
         "-DQT_QML_DEBUG",
@@ -130,9 +130,9 @@
         "-DQT_CORE_LIB",
         "-x",
         "c++-header",
-        "/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
+        "/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
     ],
-    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug",
-    "file": "/home/alfredo/projects/QtBasics/build-alfredoHttpServer-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
+    "directory": "/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug",
+    "file": "/home/alfredo/projects/QtBasics/build-alfredoHttpClient-Desktop_Qt_5_15_2_GCC_64bit-Debug/ui_mainwindow.h"
 }
 ]

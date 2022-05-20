@@ -24,6 +24,7 @@ public:
 public slots:
   void processMessage(void);
   void setRootDirectory(void);
+  void sendMessage(void);
 
 private:
   Ui::MainWindow *ui;
